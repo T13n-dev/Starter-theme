@@ -1,0 +1,19 @@
+{
+  "name": "nht_theme",
+  "version": "1.0.0",
+  "description": "Wordpress theme starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenhuutien3895/Starter-theme.git"
+  },
+  "author": "Nguyen Huu Tien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyenhuutien3895/Starter-theme/issues"
+  },
+  "homepage": "https://github.com/nguyenhuutien3895/Starter-theme#readme"
+}
