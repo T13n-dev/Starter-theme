@@ -1,0 +1,11 @@
+/**
+ * Default font family, size and color
+ */
+
+html, body {
+  font-family: $font-primary;
+  font-size: $font-base-size;
+  color: $color-text;
+  font-weight: 300;
+}
+

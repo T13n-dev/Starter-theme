@@ -1,0 +1,24 @@
+.site {
+    margin: 0 auto;
+    min-width: 310px;
+    background-color: $white;
+    opacity: 1;
+}
+
+.container {
+    width: $theme-container;
+
+    @include breakpoint-down(xl) { 
+        width: 67rem;
+    }
+
+    @include breakpoint-down(lg) {
+        width: 52rem;
+    }
+
+    @include breakpoint-down(md) {
+        width: auto;
+        margin: 0px 20px !important;
+    }
+
+}

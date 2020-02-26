@@ -1,0 +1,16 @@
+{
+    "browserSyncOptions": {
+        "proxy": "http://localhost/wp_nht/",
+        "notify": false,
+        "browser": ["firefox"]
+	},
+	"browserSyncWatchFiles": ["./css/*.css", "./js/scripts.js", "./*.php"],
+    "paths" : {
+        "js" : "./js",
+        "css" : "./css",
+        "img" : "./img",
+        "sass" : "./sass",
+        "src" : "./src",
+        "node": "./node_modules"
+    }
+}

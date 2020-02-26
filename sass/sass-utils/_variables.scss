@@ -1,0 +1,55 @@
+/**
+ * Global variables
+ */
+ $fa-font-path:        "../fonts";
+
+// Breakpoints
+    // $bp-tiny: 320px;
+    // $bp-supersmall: 520px;
+    // $bp-small: 768px;
+    // $bp-medium: 992px;
+    // $bp-large: 1024px;
+    // $bp-wide: 1280px;
+
+$breakpoints: (
+    xs: 480px,
+    sm: 640px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+// Colors
+$white: #fff;
+$black: #000;
+
+$primary-color: rgb(39,54,71);
+$sub-color: #202C3B;
+$blue: #273647;
+$light-blue: #4b5561;
+$orange: #febd69;
+$color-text: #222;
+
+$light-gray: #e3e3e3;
+$gray: #424548;
+
+$border: 1px solid #e2e2e2;
+$box-shadow: 0px 2px 11px 3px rgba(0, 0, 0, 0.1);
+
+// Fonts path
+$ww-montserrat-font-path: fonts;
+
+// Fonts
+$font-base-size: 14px !default;
+$font-primary: "Open Sans", Arial, Verdana, sans-serif;
+$roboto: 'Roboto',  Arial, Verdana, sans-serif ;
+$Montserrat: 'Montserrat',  Arial, Verdana, sans-serif;
+
+// Spacing
+$mobile-space:        10px;
+$desktop-space:       35px;
+
+$theme-container:   83rem;
+
+// Miscellaneous
+$image-path: '/assets/images';

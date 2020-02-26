@@ -1,0 +1,357 @@
+.t-header {
+  background-color: $primary-color;
+  position: relative;
+  z-index: 999;
+
+  // Header inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  // Header Top
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1.5rem 0 1rem 0;
+  }
+
+  &__section {
+    position: relative;
+  }
+
+  &__section--left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__section--middle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: auto;
+    padding: 0 0 0 2rem;
+
+    .button-icon--search {
+      display: none;
+    }
+  }
+
+  &__section--right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__service {
+    display: flex;
+  }
+
+  &__service-left {
+    display: flex;
+    align-items: center;
+    margin: 0 0.5rem;
+  }
+
+  &__service-right {
+    display: flex;
+    align-items: center;
+    margin: 0 0.5rem;
+  }
+
+  &__intro {
+    color: $white;
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: 300;
+    line-height: 1rem;
+  }
+
+  &__link {
+    color: $white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1rem;
+  }
+
+  // Header bottom
+  &__bottom {
+    background-color: $sub-color;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__bottom-inner {
+    width: $theme-container;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  &__category-list {
+    cursor: pointer;
+    float: left;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 4.2rem 0 4.2rem;
+    position: relative;
+    text-align: left;
+    width: auto;
+    line-height: 2.5rem;
+    z-index: 999;
+    @include fontawesome-solid-after($fa-var-caret-down) {
+      position: absolute;
+      bottom: -0.8rem;
+      right: 3rem;
+      left: auto;
+      color: $orange;
+    }
+
+    p {
+      color: $white;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08rem;
+      text-align: left;
+      line-height: 1.5rem;
+    }
+
+    h2 {
+      color: $orange;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.2rem;
+      text-align: left;
+      letter-spacing: 0.08rem;
+    }
+
+    &:before {
+      background: url("../images/menu.png") no-repeat center center;
+      background-color: $blue;
+      height: 2.5rem;
+      width: 2.5rem;
+      position: absolute;
+      top: 0rem;
+      left: 0rem;
+      bottom: 0rem;
+      right: 0rem;
+      border-radius: 0.3rem;
+      content: "";
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &__search-area {
+    padding: 0 1.5rem 0 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:after {
+      position: absolute;
+      content: "";
+      background : {
+        image: url("../images/menu_border.png");
+        repeat: no-repeat;
+        position: center center;
+      }
+      bottom: 0;
+      left: auto;
+      right: 0px;
+      width: 0.1rem;
+      height: 2.7rem;
+    }
+
+    &:before {
+      position: absolute;
+      content: "";
+      background : {
+        image: url("../images/menu_border.png");
+        repeat: no-repeat;
+        position: center center;
+      }
+      bottom: 0;
+      left: 0px;
+      right: auto;
+      width: 0.1rem;
+      height: 2.7rem;
+    }
+  }
+
+  &__account,
+  &__my-cart {
+    padding: 0 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__account-link,
+  &__cart-link {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sign-in,
+  &__cart {
+    color: $white;
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: 600;
+    line-height: 1rem;
+  }
+
+  &__my-account,
+  &__total {
+    color: $orange;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1rem;
+
+    @include fontawesome-solid-after($fa-var-caret-down) {
+      color: $orange;
+      left: auto;
+      right: 1rem;
+      position: absolute;
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+  }
+
+  /************************* BREAK-POINT *************************/
+
+  @include breakpoint-down(xl) {
+    &__top {
+      flex-direction: column;
+    }
+
+    &__mobile-menu {
+      display: block;
+    }
+
+    &__category-list {
+      padding: 0 1rem 0 3rem;
+      &:after {
+        right: 0;
+      }
+    }
+  }
+
+  @include breakpoint-down(lg) {
+    &__section--middle {
+      padding: 0 0 0 0.5rem;
+    }
+
+    &__category-list {
+      padding: 0 1rem 0 3rem;
+      p {
+        font-size: 0.9rem;
+      }
+      h2 {
+        font-size: 0.9rem;
+      }
+      &:after {
+        right: 0;
+      }
+    }
+
+    &__account,
+    &__my-cart {
+      padding: 0 0.3rem;
+    }
+
+    &__my-account,
+    &__total {
+      &:after {
+        all: unset;
+      }
+    }
+  }
+
+  @include breakpoint-down(lg) {
+    &__top {
+      flex-direction: row;
+    }
+
+    &__category-list {
+      padding: 0 1rem 0 3rem;
+      p {
+        display: none;
+      }
+      h2 {
+        display: none;
+      }
+      &:after {
+        all: unset;
+      }
+    }
+
+    &__service-left {
+      display: none;
+    }
+
+    &__service-right {
+      display: none;
+    }
+  }
+
+  @include breakpoint-down(md) {
+    &__header-inner {
+      width: 100%;
+    }
+
+    &__bottom-inner {
+      width: 100% !important;
+    }
+
+    &__account-link {
+      background-image: url("../images/user.svg");
+      background-color: rgba(0, 0, 0, 0);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 2rem;
+      box-sizing: border-box;
+      font-size: 1rem;
+      height: 2rem;
+      width: 2rem;
+      position: relative;
+      content: "";
+      display: inline-block;
+    }
+
+    &__sign-in {
+      display: none;
+    }
+
+    &__my-account {
+      display: none;
+    }
+
+    &__cart-link {
+      display: none;
+    }
+  }
+
+  @include breakpoint-down(sm) {
+    &__search-area {
+      display: none;
+    }
+
+    &__category-list {
+      padding: 0 0rem 0 3rem;
+    }
+
+    .button-icon--search {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+/** ***************** **/
+/** Primary Sass file **/
+/** ***************** **/ 
+
+// Fonts default
+@import "vendor/fonts";
+
+// Sass utilities
+@import "sass-utils/variables";
+@import "sass-utils/helpers";
+@import "sass-utils/mixins";
+@import "sass-utils/functions.scss";
+
+// Vendor
+@import "vendor/fontawesome";
+
+// Base
+@import "base/reset";
+@import "base/typography";
+
+// Layout 
+@import "layouts/sidebar";
+@import "layouts/header";
+@import "layouts/navigation";
+@import "layouts/mobile_sidebar";
+
+// Components 
+@import "components/buttons";
+@import "components/advertisement";
+@import "components/search";
+
+// Page
+@import "pages/home";

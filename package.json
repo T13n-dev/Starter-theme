@@ -15,5 +15,28 @@
   "bugs": {
     "url": "https://github.com/nguyenhuutien3895/Starter-theme/issues"
   },
-  "homepage": "https://github.com/nguyenhuutien3895/Starter-theme#readme"
+  "homepage": "https://github.com/nguyenhuutien3895/Starter-theme#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-changed": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-line-ending-corrector": "^1.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify-es": "^2.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@webwingscz/googlefont-montserrat": "^1.0.5",
+    "opensans-npm-webfont": "^1.0.0",
+    "roboto-npm-webfont": "^1.0.1"
+  }
 }

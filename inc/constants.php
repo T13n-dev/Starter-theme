@@ -1,6 +1,8 @@
 <?php  
 
 defined( 'INCLUDE_DIR' ) ? null : define( 'INCLUDE_DIR', trailingslashit( get_template_directory() ) );
+defined( 'INCLUDE_DIR_URI' ) ? null : define( 'INCLUDE_DIR_URI', trailingslashit( get_template_directory_uri() ) );
+
 defined( 'LANG_DIR' ) ? null : define( 'LANG_DIR', 
 trailingslashit( WP_LANG_DIR ) );
 

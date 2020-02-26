@@ -1,0 +1,76 @@
+.t-search {
+  border : {
+    style: solid;
+    color: $white;
+    radius: 0.2rem;
+  }
+  background-color: $white;
+  display: flex;
+
+  &__group {
+    padding: 0.1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__field {
+    border: 0;
+    color: #aaa;
+    float: left;
+    height: 2.5rem;
+    padding: 1.2rem 3rem 1rem 1rem;
+    width: 27rem;
+    background: $white;
+    text-transform: capitalize;
+    letter-spacing: 0.05rem;
+    font-size: 0.9rem;
+  }
+
+  &__category {
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1rem;
+    &:before {
+      background: #e6e6e6;
+      content: "";
+      height: 1.2rem;
+      position: absolute;
+      left: 0;
+      width: 0.1rem;
+      top: 0.6rem;
+    }
+  }
+
+  &__select-box {
+    width: 9rem;
+    display: block;
+    text-decoration: none;
+  }
+
+  &__label {
+    color: #737373;
+  }
+
+  &__arrow {
+    @include fontawesome-solid-after($fa-var-caret-down) {
+      position: absolute;
+      top: 0.7rem;
+      right: 1rem;
+      left: auto;
+      color: #737373;
+    }
+  }
+
+  /************************* BREAK-POINT *************************/
+  @include breakpoint-down(xl) {
+    &__field {
+        width: 100%;
+    }
+
+    &__select-box {
+      width: 8rem;
+      span {
+        font-size: .9rem;
+      }
+    }
+  }
+}

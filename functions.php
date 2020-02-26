@@ -1,16 +1,19 @@
 <?php 
 /**
- * T Starter functions and definitions 
- * 
+ * T Starter functions and definitions
  */
-
 defined( 'ABSPATH' ) || exit;
 
 $includes = array (
     'constants.php',
     'setup.php',
+    'menu.php',
+    'sidebar.php',
+    'hooks.php',
+    'enqueue.php',
     'ajax.php',
-    'customizer.php'
+    'customizer.php',
+    'admin/function-admin.php'
 );
 
 foreach ( $includes as $file ) {

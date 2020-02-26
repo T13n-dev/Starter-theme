@@ -1,0 +1,159 @@
+/* MIXINS */
+/* mixin fontawesome */
+@mixin fontawesome-solid-before($style) {
+  &:before {
+    content: fa-content($style);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @content;
+  }
+}
+@mixin fontawesome-regular-before($style) {
+  &:before {
+    content: fa-content($style);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @content;
+  }
+}
+@mixin fontawesome-brands-before($style) {
+  &:before {
+    content: fa-content($style);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @content;
+  }
+}
+@mixin fontawesome-solid-after($style) {
+  &:after {
+    content: fa-content($style);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @content;
+  }
+}
+@mixin fontawesome-regular-after($style) {
+  &:after {
+    content: fa-content($style);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @content;
+  }
+}
+@mixin fontawesome-brands-after($style) {
+  &:after {
+    content: fa-content($style);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @content;
+  }
+}
+
+/* BREAKPOINT */
+@mixin breakpoint-up($name, $bp: $breakpoints) {
+  $min: map-get($bp, $name);
+
+  @if $min != null {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($name, $bp: $breakpoints) {
+  $max: map-get($bp, $name);
+
+  @if $max != null {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin breakpoint-between() {
+  $min: map-get($bp, $name);
+  $max: map-get($bp, $name);
+
+  @if $max != null and $min != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max != null {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else if $min != null {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+}
+
+/* SPACING */
+$num: 5;
+@for $i from 0 through 10 {
+  .mt#{$i * $num} {
+    margin-top: #{$i * $num}px !important;
+  }
+  .mr#{$i * $num} {
+    margin-right: #{$i * $num}px !important;
+  }
+  .mb#{$i * $num} {
+    margin-bottom: #{$i * $num}px !important;
+  }
+  .ml#{$i * $num} {
+    margin-left: #{$i * $num}px !important;
+  }
+  .pt#{$i * $num} {
+    padding-top: #{$i * $num}px !important;
+  }
+  .pr#{$i * $num} {
+    padding-right: #{$i * $num}px !important;
+  }
+  .pb#{$i * $num} {
+    padding-bottom: #{$i * $num}px !important;
+  }
+  .pl#{$i * $num} {
+    padding-left: #{$i * $num}px !important;
+  }
+}
+
+/* TEXT COLOR */
+$colors: (
+  orange: $orange,
+  blue: $blue,
+  black: $black,
+  white: $white
+);
+
+@each $c_name, $c_value in $colors {
+  .text-#{$c_name} {
+    color: #{$c_value} !important;
+  }
+}
+
+/* FONT SIZE */
+$num2: 0.5;
+@for $i from 0 through 5 {
+  .fs-#{$i} {
+    font-size: percentage($i * $num2);
+  }
+}
+
+/* FONT WEIGHT */
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+.font-weight-normal {
+  font-weight: 400 !important;
+}
+.font-weight-light {
+  font-weight: 300 !important;
+}
+.font-italic {
+  font-style: italic !important;
+}
