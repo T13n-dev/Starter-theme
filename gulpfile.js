@@ -44,8 +44,14 @@ gulp.task('watch', function() {
     // css
     gulp.watch(`${paths.sass}/**/*.scss`, gulp.series('styles') );
     // js 
-    gulp.watch(`${paths.sass}/*.js`, gulp.series('scripts') );
-    // image 
+    gulp.watch( 
+        [
+            `${paths.js}/*.js`,
+            `!${paths.js}/main.js`,
+            `!${paths.js}/main.min.js`,
+        ]
+        , gulp.series('scripts') );
+    // image
 });
 
 gulp.task('browser-sync', function() {
@@ -54,8 +60,12 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scripts', function() {
     var scripts = [
-        `${paths.js}/admin.js`,
-        `${paths.js}/navigation.js`
+        `${paths.src}/slick-carousel/slick.js`,
+        `${paths.src}/owl-carousel/js/owl.carousel.js`,
+
+        // Custom js
+        `${paths.js}/navigation.js`,
+        `${paths.js}/carousel.js`,
     ];
     
     return gulp.src(scripts, { allowEmpty: true })
@@ -73,7 +83,7 @@ gulp.task('copy-assets', function(done) {
     .pipe(gulp.dest('./fonts'));
 	gulp
     .src(`${paths.node}/@fortawesome/fontawesome-free/scss/*.scss`)
-    .pipe(gulp.dest(`${paths.src}/sass/fontawesome`));
+    .pipe(gulp.dest(`${paths.src}/fontawesome`));
 
     // Copy all Web Fonts
     gulp
@@ -81,27 +91,39 @@ gulp.task('copy-assets', function(done) {
     .pipe(gulp.dest('./css/fonts'));
     gulp
     .src(`${paths.node}/opensans-npm-webfont/**/*.scss`)
-    .pipe(gulp.dest(`${paths.src}/sass/fonts/opensans`));
+    .pipe(gulp.dest(`${paths.src}/fonts/opensans`));
     //
     gulp
     .src(`${paths.node}/roboto-npm-webfont/full/fonts/**/*.{eot,ttf,woff,woff2}`)
     .pipe(gulp.dest('./css/fonts'));
     gulp
     .src(`${paths.node}/roboto-npm-webfont/full/**/*.scss`)
-    .pipe(gulp.dest(`${paths.src}/sass/fonts/roboto`));
+    .pipe(gulp.dest(`${paths.src}/fonts/roboto`));
     //
     gulp
     .src(`${paths.node}/@webwingscz/googlefont-montserrat/fonts/**/*.ttf`)
     .pipe(gulp.dest('./css/fonts'));
     gulp
     .src(`${paths.node}/@webwingscz/googlefont-montserrat/**/*.scss`)
-    .pipe(gulp.dest(`${paths.src}/sass/fonts/montserrat`));
+    .pipe(gulp.dest(`${paths.src}/fonts/montserrat`));
+
+    // Slick carousel
+    gulp
+    .src(`${paths.node}/slick-carousel/slick/**/*.{scss,js,eot}`)
+    .pipe(gulp.dest(`${paths.src}/slick-carousel`));
+    gulp 
+    .src(`${paths.node}/slick-carousel/slick/fonts/*.{svg,ttf,woff}`)
+    .pipe(gulp.dest(`./css/fonts`));
+    // Owl carousel 
+    gulp
+    .src(`${paths.node}/owl.carousel/src/**/*`)
+    .pipe(gulp.dest(`${paths.src}/owl-carousel`));
 
     done();
 });
 
 gulp.task('cleanup', function() {
-	return del(['src/**/*', 'fonts/**/*']);
+	return del(['src/**/*', 'fonts/**/*', 'css/fonts/*']);
 });
 
 gulp.task('watch-bs', gulp.parallel('browser-sync', 'watch'));

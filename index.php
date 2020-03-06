@@ -1,7 +1,22 @@
-<?php get_header(); ?>
+<?php
 
-    <?php 
-        echo 'content';
+/**
+ * The main template file
+ * 
+ * @package tstarter
+ */
+
+get_header();
+?>
+<main class="main">
+    <?php
+    if (have_posts()) :
+        while (have_posts()) :
+            the_post();
+
+            the_content();
+        endwhile;
+    endif;
     ?>
-
+</main>
 <?php get_footer(); ?>

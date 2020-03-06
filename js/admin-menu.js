@@ -28,29 +28,4 @@ jQuery(function ($) {
         update();
     })();
 
-    // icon
-    (function() {
-        
-        menu.on('click', '#mega-menu-pick-icon', function(e){
-            e.preventDefault();
-
-            $( '.nht-menu-modal-icon' ).css('display', 'block');
-            
-        });
-
-        $('.media-modal-close, .media-modal-backdrop').on('click', function(e) {
-            e.preventDefault();
-
-            $( '.nht-menu-modal-icon' ).css('display', 'none');
-
-        });
-
-        $.getJSON("../../src/icons.json", function(json) {
-            console.log(json); 
-        });
-
-        
-    })();
-
-
 });

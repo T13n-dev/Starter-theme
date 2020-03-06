@@ -1,5 +1,5 @@
 <?php
-defined('ABSPATH') || exit;
+    defined('ABSPATH') || exit;
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
     } else {
         do_action('wp_body_open');
     }
-    ?>
+    ?> 
 
     <div class="site">
         <header class="t-header">

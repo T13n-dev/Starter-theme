@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: 1.5rem 0 1rem 0;
+    height: 7rem;
   }
 
   &__section {
@@ -81,7 +81,7 @@
   // Header bottom
   &__bottom {
     background-color: $sub-color;
-    height: 6rem;
+    height: 5rem;
     display: flex;
     align-items: center;
   }

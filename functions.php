@@ -1,6 +1,8 @@
 <?php 
 /**
- * T Starter functions and definitions
+ * Functions and definitions
+ * 
+ * @package tstarter
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -13,7 +15,8 @@ $includes = array (
     'enqueue.php',
     'ajax.php',
     'customizer.php',
-    'admin/function-admin.php'
+    'admin/function-admin.php', // setup admin functions
+    'init-template.php' // setup theme template
 );
 
 foreach ( $includes as $file ) {

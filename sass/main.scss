@@ -2,17 +2,20 @@
 /** Primary Sass file **/
 /** ***************** **/ 
 
-// Fonts default
-@import "vendor/fonts";
+
 
 // Sass utilities
 @import "sass-utils/variables";
+    // Fonts default
+    @import "vendor/fonts";
 @import "sass-utils/helpers";
 @import "sass-utils/mixins";
 @import "sass-utils/functions.scss";
 
 // Vendor
 @import "vendor/fontawesome";
+@import "vendor/slick";
+@import "vendor/owl";
 
 // Base
 @import "base/reset";
@@ -28,6 +31,10 @@
 @import "components/buttons";
 @import "components/advertisement";
 @import "components/search";
+@import "components/carousel";
+
+// Woo 
+@import "woo/woo";
 
 // Page
 @import "pages/home";
