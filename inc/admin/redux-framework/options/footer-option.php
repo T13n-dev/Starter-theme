@@ -1,14 +1,13 @@
-<?php 
-    /**
-     * Footer Options
-     * 
-     * ! How can i use this suck font, when cant CDN, get component bla bla ....bored
-     * @package tstarter/inc/admin/redux-framework/options
-     */
+<?php
+/**
+ * Footer Options
+ * 
+ * @package tstarter/inc/admin/redux-framework/options
+ */
 
 $footer_options = apply_filters('t_footer_options_args', array(
     'title'        => esc_html__('Footer', 'understrap'),
-    'icon'         => 'el el-home',
+    'icon'         => 'el el-caret-down',
     'fields'       => array(
         array(
             'id'            => 't_caption_address_footer',
@@ -69,7 +68,7 @@ $footer_options = apply_filters('t_footer_options_args', array(
             'compiler'      => 'true',
             //'mode' => false, // Can be set to false to allow any media type, or can also be set to any mime type.
             'desc'          => esc_html__('Set payment image footer', THEME_DOMAIN),
-            'default'       => array('url' => get_template_directory_uri().'/images/logo.png'),                     
-        )         
+            'default'       => array('url' => get_template_directory_uri() . '/images/logo.png'),
+        )
     )
 ));

@@ -1,19 +1,25 @@
 <?php
-if (!function_exists('huutien_apply_header_style')) {
-    function huutien_apply_header_style()
+
+/**
+ * 
+ * Header funcition
+ * 
+ *  @package  tstarter/inc/admin/redux-framework/functions
+ */
+
+if (!function_exists('t_apply_header_sticky')) {
+    function t_apply_header_sticky()
     {
-        global $huutien_options;
+        global $t_options;
 
-        if ( ! isset( $huutien_options['tm-header-layout'] ) ) {
-            $huutien_options['tm-header-layout'] = 'sticky-topbar';
-        } 
-
-        if ( $huutien_options['tm-header-layout'] != 'sticky-topbar' ) {
-            $result = $huutien_options['tm-header-layout'];
+        if ( isset( $t_options['t-header-layout'] ) && $t_options['t-header-layout'] == 'sticky-bottom' ) {
+           $result = 2;
+        }  else if ( isset( $t_options['t-header-layout'] ) && $t_options['t-header-layout'] == 'sticky-top' ) {
+            $result = 1;
         } else {
-            $result = $huutien_options['tm-header-layout'];
+            $result = 3;
         }
-        
+
         return $result;
     }
 }

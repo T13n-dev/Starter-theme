@@ -17,6 +17,7 @@ $includes = array (
     'customizer.php',
     'cpt.php',
     'widgets.php',
+    'classes.php',
     'admin/function-admin.php', // setup admin functions
     'init-template.php' // setup theme template
 );

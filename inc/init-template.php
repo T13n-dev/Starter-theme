@@ -1,7 +1,7 @@
 <?php 
 
     /**
-     * Connection room :v 
+     * Connection Template 
      * 
      * @package tstarter
      */

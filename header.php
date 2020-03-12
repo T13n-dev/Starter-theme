@@ -31,77 +31,79 @@
     <div class="site">
         <header class="t-header">
             <div class="t-header__inner">
-                <div class="t-header__top container">
-                    <div class="t-header__section t-header__section--left">
-                        <?php if (!has_custom_logo()) : ?>
-                            <h2>
-                                <?php bloginfo('name'); ?>
-                            </h2>
-                        <?php
-                        else :
-                            the_custom_logo();
-                        endif;
-                        ?>
-                    </div>
-                    <div class="t-header__section t-header__section--middle">
-                        <?php wp_nav_menu(
-                            array(
-                                'theme_location'  => 'primary',
-                                'container'       => 'nav',
-                                'container_class' => 't-menu',
-                                'container_id'    => 'nav',
-                                'menu_class'      => 't-menu__list',
-                                // 'menu_id'         => 't-header-nav',
-                                'fallback_cb'     => '',
-                                'depth'           => 2,
-                                'items_class'     => '', // More custom add class at menu.php
-                                'walker'          => new HuuTien_Menu_Walker_Mega()
-                            )
-                        ); ?>
-                    </div>
-                    <div class="t-header__section t-header__section--right">
-                        <div class="t-header__service">
-                            <div class="t-header__service-left">
-                                <div class="button-icon button-icon--ship">
-                                </div>
-                                <div class="t-header__service-content">
-                                    <div class="t-header__intro">
-                                        Free
-                                    </div>
-                                    <div class="t-header__link">
-                                        Shipping
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="t-header__service-right">
-                                <div class="button-icon button-icon--contact">
-                                </div>
-                                <div class="t-header__service-content">
-                                    <div class="t-header__intro">
-                                        Contact Us
-                                    </div>
-                                    <div class="t-header__link">
-                                        070 7768 350
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="advertisement-zone">
-                                <a href="#">Advertisement zone</a>
-                            </div>
-                            
-                        </div>
-                        <div class="t-header__mobile-menu">
-                            <div class="button-icon--menu ml10">
-                            </div>
-                            <?php 
-                                wp_nav_menu(
-                                    array (
-                                        'theme_location' => 'mobile',
-                                        'container' => 'nav',
-                                        'container_class' => 't-mobile'
-                                    )
-                                );
+                <div class="t-header__top">
+                    <div class="t-header__top--inner container">
+                        <div class="t-header__section t-header__section--left">
+                            <?php if (!has_custom_logo()) : ?>
+                                <h2>
+                                    <?php bloginfo('name'); ?>
+                                </h2>
+                            <?php
+                            else :
+                                the_custom_logo();
+                            endif;
                             ?>
+                        </div>
+                        <div class="t-header__section t-header__section--middle">
+                            <?php wp_nav_menu(
+                                array(
+                                    'theme_location'  => 'primary',
+                                    'container'       => 'nav',
+                                    'container_class' => 't-menu',
+                                    'container_id'    => 'nav',
+                                    'menu_class'      => 't-menu__list',
+                                    // 'menu_id'         => 't-header-nav',
+                                    'fallback_cb'     => '',
+                                    'depth'           => 2,
+                                    'items_class'     => '', // More custom add class at menu.php
+                                    'walker'          => new HuuTien_Menu_Walker_Mega()
+                                )
+                            ); ?>
+                        </div>
+                        <div class="t-header__section t-header__section--right">
+                            <div class="t-header__service">
+                                <div class="t-header__service-left">
+                                    <div class="button-icon button-icon--ship">
+                                    </div>
+                                    <div class="t-header__service-content">
+                                        <div class="t-header__intro">
+                                            Free
+                                        </div>
+                                        <div class="t-header__link">
+                                            Shipping
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="t-header__service-right">
+                                    <div class="button-icon button-icon--contact">
+                                    </div>
+                                    <div class="t-header__service-content">
+                                        <div class="t-header__intro">
+                                            Contact Us
+                                        </div>
+                                        <div class="t-header__link">
+                                            070 7768 350
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="advertisement-zone">
+                                    <a href="#">Advertisement zone</a>
+                                </div>
+                                
+                            </div>
+                            <div class="t-header__mobile-menu">
+                                <div class="button-icon--menu ml10">
+                                </div>
+                                <?php 
+                                    wp_nav_menu(
+                                        array (
+                                            'theme_location' => 'mobile',
+                                            'container' => 'nav',
+                                            'container_class' => 't-mobile'
+                                        )
+                                    );
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,7 +155,7 @@
                                     <span class="t-header__sign-in">Sign In</span>
                                     <span class="t-header__my-account">My account</span>
                                 </div>
-                                <div class="t-header__account-dropdown" style="display: none">
+                                <div class="t-header__account-dropdown">
                                     <ul>
                                         <li> My Account </li>
                                         <li> Wishlist </li>

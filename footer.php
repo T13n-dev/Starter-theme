@@ -15,9 +15,17 @@ defined('ABSPATH') || exit;
             ?>
 
         </footer>
-        <div class="t-backtotop">
-            <i class="fa  fa-arrow-up"></i>
-        </div>
+    
+        <?php 
+            if ( apply_filters('t_scroll_to_top', true) ) 
+            {
+        ?>
+            <div class="t-backtotop">
+                <i class="fa  fa-arrow-up"></i>
+            </div>
+        <?php 
+            }
+        ?>
     </div>
     <?php wp_footer(); ?>
 </body>

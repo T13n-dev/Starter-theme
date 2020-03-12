@@ -22,6 +22,7 @@ jQuery(function ($) {
             this.blogsCarousel();
             this.brandCarousel();
             this.miniCartToggle();
+            this.fixedHeader();
 
             /**
              * Page Loader
@@ -244,11 +245,61 @@ jQuery(function ($) {
         }
 
         miniCartToggle() {
-            var $cartBtn = $('.t-header__my-cart');
+            const $cartBtn = $('.t-header__my-cart');
+            const $accountBtn = $('.t-header__account-link'); 
 
             $cartBtn.on("click", function () {
                 $('.t-header__cart-dropdown').slideToggle('slow');
             });
+
+            $accountBtn.on("click", function () {
+                $('.t-header__account-dropdown').slideToggle('slow');
+            });
+
+        }
+
+        fixedHeader() {
+            if ( $windowWidth > 768 ) {
+                
+                var $headerNavTop = $('.t-header__top');
+                var $headerNavBottom = $('.t-header__bottom');
+
+                if ( $body.is( '.t-header--sticky-top' )  ) {
+                    console.log('sticky-top');
+                }
+
+                if ( $body.is( '.t-header--sticky-bottom' )  ) {
+                    
+                    var toolbarOffset  = $body.is( '.admin-bar' ) ? $( '#wpadminbar' ).height() : 0;
+                    var mastheadOffsetBottom = $( '.t-header__bottom' ).offset().top - toolbarOffset;
+
+                    $window.on( 'scroll', function() {
+
+                        if ( ( window.scrollY > mastheadOffsetBottom ) ) {
+                            $headerNavBottom.addClass( 't-header__bottom--fixed' );
+                        } else {
+                            $headerNavBottom.removeClass( 't-header__bottom--fixed' );
+                        }
+                    } );
+                }
+
+                if ( $body.is( '.t-header--sticky-top' )  ) {
+                    
+                    var toolbarOffset  = $body.is( '.admin-bar' ) ? $( '#wpadminbar' ).height() : 0;
+                    var mastheadOffsetTop = $( '.t-header__top' ).offset().top - toolbarOffset;
+
+                    $window.on( 'scroll', function() {
+
+                        if ( ( window.scrollY > mastheadOffsetTop ) ) {
+                            $headerNavTop.addClass( 't-header__top--fixed' );
+                        } else {
+                            $headerNavTop.removeClass( 't-header__top--fixed' );
+                        }
+                    } );
+                }
+
+
+            }
         }
     }
 
