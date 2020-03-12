@@ -10,7 +10,6 @@
     // $bp-medium: 992px;
     // $bp-large: 1024px;
     // $bp-wide: 1280px;
-
 $breakpoints: (
     xs: 480px,
     sm: 640px,
@@ -33,6 +32,9 @@ $color-text: #222;
 $color-text2: #333e48;
 $color-text3: #707070;
 $color-text4: #bababa;
+$color-text5: #b5b5b5;
+$color-text6: #858585;
+$color-text7: #ebebeb;
 
 $bg-gray: #f5f5f5;
 $txt-gray: #c7c7c7;
@@ -42,6 +44,7 @@ $gray: #424548;
 
 $border: 1px solid #e2e2e2;
 $border2: 2px solid #f0f0f0;
+$border3: 1px solid #4b5561;
 $border-color1: #e2e2e2;
 $border-color2: #f0f0f0;
 $box-shadow: 0px 2px 11px 3px rgba(0, 0, 0, 0.1);

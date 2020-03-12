@@ -1,6 +1,8 @@
 <?php 
 /**
  * Theme setup
+ * 
+ * @package tstarter
  */
 
 // Exit if accessed directly.
@@ -108,15 +110,24 @@ if( !function_exists( 'declare_theme_support' ) ) {
 	}
 }
 
-if ( !function_exists('custom_excerpt_more') ) {
-	function custom_excerpt_more( $more ) {
-		if ( ! is_admin() ) {
-			$more = '';
-		}
-		return $more;
-	}
+add_filter( 'excerpt_length', function($length) {
+    return 23;
+} );
+
+function t_excerpt_more( $more ) {
+    return '';
 }
-add_filter( 'excepts_more', 'custom_excerpt_more' );
+add_filter('excerpt_more', 't_excerpt_more');
+
+// if ( !function_exists('custom_excerpt_more') ) {
+// 	function custom_excerpt_more( $more ) {
+// 		if ( ! is_admin() ) {
+// 			$more = '';
+// 		}
+// 		return $more;
+// 	}
+// }
+// add_filter( 'excepts_more', 'custom_excerpt_more' );
 
 // if ( !function_exists( 'custom_all_excerpts_get_more_link' ) ) {
 // 	function custom_all_excerpts_get_more_link( $post_excerpt ) {

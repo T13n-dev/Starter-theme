@@ -1,0 +1,135 @@
+footer {
+    background-color: $blue;
+
+    .footer-top {
+        padding: 3rem 0 2.5rem 0;
+
+        .t-widget {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+
+            &__title {
+               @extend %format-title;
+            }
+
+            &__contact-address,
+            &__contact-phone,
+            &__contact-email {
+               @extend %format-contact;
+            }
+
+            .widget-title {
+                @extend %format-title;
+            }
+
+            &__item {
+                ul {
+                    li {
+                        a {
+                            display: block;
+                            text-decoration: none;
+                            transition: color .1s ease;
+                            @extend %format-contact;
+
+                            &:hover {
+                                color: $orange;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__col-5 {
+                position: relative;
+                padding-right: 1rem;
+
+                &:nth-child(1) {
+                    flex: 0 0 15%;
+                }
+                &:nth-child(2) {
+                    flex: 0 0 15%;
+                }
+                &:nth-child(3) {
+                    flex: 0 0 15%;
+                }
+                &:nth-child(4) {
+                    flex: 0 0 30%;
+                    padding: 0 2rem;
+
+                    &:before {
+                        position: absolute;
+                        border-left: 1px solid #4b5561;
+                        content: "";
+                        width: 1px;
+                        height: 100%;
+                        left: 0px;
+                    }
+                }
+                &:last-child {
+                    flex: 0 0 25%;
+                    padding-right: 0;
+                }
+
+                p {
+                    @extend %format-contact;
+                    transition: color .1s ease;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+            }
+
+            &__contact {
+                line-height: 1.5rem;
+                i {
+                    padding-right: .5rem;
+                    font-size: 1.5rem;
+                }
+
+                &-address,
+                &-phone,
+                &-email {
+                    cursor: pointer;
+                    transition: color .1s ease;
+
+                    &:hover{
+                        color: $orange;
+                    }
+                }
+               
+               
+            }
+        }
+    }
+    .footer-bottom {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        border-top: 1px solid $light-blue;
+        padding: 1rem 0;
+        text-align: center;
+
+        &__inner {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__copyright {
+            color: $color-text7;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        &__payment {
+            img {
+                width:  10rem;
+            }
+        }
+    }
+}

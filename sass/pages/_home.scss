@@ -67,6 +67,7 @@
       position: absolute;
       background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
       transition: all 0.5s ease-in;
+      z-index: 1;
     }
 
     &:before {
@@ -79,6 +80,7 @@
       position: absolute;
       background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
       transition: all 0.5s ease-in;
+      z-index: 1;
     }
   }
 
@@ -148,14 +150,15 @@
 
       &:after {
         content: "";
-        bottom: 50%;
         opacity: 1;
-        right: 0;
+        bottom: 50%;
         top: 50%;
+        right: 0;
         left: 0;
         position: absolute;
         background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
         transition: all 0.5s ease-in;
+        z-index: 1;
       }
 
       &:before {
@@ -168,16 +171,13 @@
         position: absolute;
         background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
         transition: all 0.5s ease-in;
+        z-index: 1;
       }
     }
 
     &__items {
       display: block;
       position: relative;
-    }
-
-    &__image {
-     
     }
 
     &__content {
@@ -202,6 +202,7 @@
       font-weight: 500;
       font-size: 1rem;
       padding-bottom: 4%;
+      color: #777777;
     }
 
     &__action {
@@ -227,6 +228,7 @@
       font-size: 1.5rem;
       font-weight: 600;
       color: $black;
+      text-transform: capitalize;
     }
 
     ul {
@@ -280,6 +282,10 @@
       object-fit: cover;
       border-radius: 0.5rem;
     }
+  }
+
+  &__body {
+    position: relative;
   }
 
   &__image-content {
@@ -378,6 +384,43 @@
       font-weight: 600;
       line-height: 8rem;
       border-radius: 0.3rem;
+    }
+  }
+}
+
+.t-blog-items {
+  margin-bottom: 3rem;
+  &__head {
+    display: flex;
+    border-bottom: $border2;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    vertical-align: top;
+    justify-content: space-between;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $black;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.t-brand-carousel {
+  padding-bottom: 2rem;
+  ul {
+    li {
+      margin: 5px 15px;
+      cursor: pointer;
+      img {
+        width: 100%;
+        height: auto;
+        opacity: 0.7;
+        transition: opacity .5s ease; 
+        &:hover  {
+            opacity: 1;
+        }
+      }
     }
   }
 }

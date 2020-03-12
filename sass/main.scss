@@ -11,6 +11,7 @@
 @import "sass-utils/helpers";
 @import "sass-utils/mixins";
 @import "sass-utils/functions.scss";
+@import "sass-utils/placeholder";
 
 // Vendor
 @import "vendor/fontawesome";
@@ -26,15 +27,19 @@
 @import "layouts/header";
 @import "layouts/navigation";
 @import "layouts/mobile_sidebar";
+@import "layouts/footer";
 
 // Components 
 @import "components/buttons";
 @import "components/advertisement";
 @import "components/search";
 @import "components/carousel";
+@import "components/loadingpage";
+@import "components/backtotop";
 
 // Woo 
 @import "woo/woo";
 
 // Page
 @import "pages/home";
+@import "pages/blog";

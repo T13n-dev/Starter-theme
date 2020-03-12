@@ -62,10 +62,19 @@ gulp.task('scripts', function() {
     var scripts = [
         `${paths.src}/slick-carousel/slick.js`,
         `${paths.src}/owl-carousel/js/owl.carousel.js`,
+        `${paths.src}/owl-carousel/js/owl.animate.js`,
+        `${paths.src}/owl-carousel/js/owl.autoheight.js`,
+        `${paths.src}/owl-carousel/js/owl.autoplay.js`,
+        `${paths.src}/owl-carousel/js/owl.autorefresh.js`,
+        `${paths.src}/owl-carousel/js/owl.hash.js`,
+        `${paths.src}/owl-carousel/js/owl.lazyload.js`,
+        `${paths.src}/owl-carousel/js/owl.navigation.js`,
+        `${paths.src}/owl-carousel/js/owl.support.js`,
+        // `${paths.src}/owl-carousel/js/owl.support.modernizr.js`,
+        `${paths.src}/owl-carousel/js/owl.video.js`,
 
-        // Custom js
-        `${paths.js}/navigation.js`,
-        `${paths.js}/carousel.js`,
+        // Main js
+        `${paths.js}/functions.js`
     ];
     
     return gulp.src(scripts, { allowEmpty: true })

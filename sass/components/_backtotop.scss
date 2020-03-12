@@ -1,0 +1,16 @@
+.t-backtotop {
+    border-radius: 3px 3px 0 0;
+    background-color: $light-blue;
+    color: $white;
+    width: 2.8rem;
+    height: 2.5rem;
+    position: fixed;
+    bottom: 0;
+    right: 2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    padding-top: 6px;
+    transition: background 0.3s, color 0.2s;
+    cursor: pointer;
+    z-index: 9;
+}

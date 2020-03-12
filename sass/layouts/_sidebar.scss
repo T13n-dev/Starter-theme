@@ -7,6 +7,12 @@
   &__list {
     background-color: $blue;
     border-radius: 0 0 0.5rem 0.5rem;
+
+    > li {
+      &:not(:last-child) {
+        border-bottom: 1px solid $light-blue;
+      }
+    }
   }
 
   &__item {
@@ -15,10 +21,6 @@
     cursor: pointer;
     text-align: left;
     position: relative;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid $light-blue;
-    }
 
     > a {
       padding: 0.9rem 0.9rem 0.9rem 3rem;
@@ -60,7 +62,7 @@
     visibility: hidden;
     background-color: $blue;
     box-shadow: $box-shadow;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
   }
 
   &__dropdown {
@@ -86,7 +88,7 @@
     box-shadow: $box-shadow;
     opacity: 0;
     visibility: hidden;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
 
     a {
       color: $blue;
@@ -143,14 +145,14 @@
     border-radius: 0.3rem;
     right: 1rem;
     transition: transform 300ms;
-    transform: scale( 1, 1 );
+    transform: scale(1, 1);
     transform-origin: right center;
   }
 
   &__dropdown {
     &:hover {
       .t-sidebar__caret-right {
-        transform: scale( 0, 0 );
+        transform: scale(0, 0);
       }
     }
   }

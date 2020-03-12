@@ -14,7 +14,7 @@ if (!class_exists('T_ReduxOptions')) {
 
         public function load_config()
         {
-            $options = array( 'general', 'miscellaneous', 'preload', 'branding', 'sidenav', 'typography', 'social', 'search' );
+            $options = array( 'general', 'miscellaneous', 'preload', 'branding', 'sidenav', 'typography', 'social', 'search', 'footer' );
 
             $options_dir = INCLUDE_DIR . 'inc/admin/redux-framework/options';
 
@@ -22,7 +22,7 @@ if (!class_exists('T_ReduxOptions')) {
                 require_once $options_dir . '/' . $option . '-option.php';
             }
 
-            $sections     = apply_filters('redux_options_sections_args', array( $general_options, $miscellaneous_options, $preload_options, $branding_options, $sidenav_options, $typography_options, $social_options, $search_options ) );
+            $sections     = apply_filters('redux_options_sections_args', array( $general_options, $miscellaneous_options, $preload_options, $branding_options, $sidenav_options, $typography_options, $social_options, $search_options, $footer_options ) );
             $theme         = wp_get_theme();
             $args         = array(
                 'opt_name'              => 't_options',

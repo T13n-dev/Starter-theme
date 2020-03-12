@@ -56,3 +56,19 @@
         }
     }
   
+    if ( ! function_exists( 't_mini_cart_fragment' ) ) {
+        /**
+         * Cart Fragments
+         * Ensure cart contents update when products are added to the cart via AJAX
+         * @param  array $fragments Fragments to refresh via AJAX
+         * @return array            Fragments to refresh via AJAX
+         */
+
+        function t_mini_cart_fragment( $fragments ) {
+
+            $fragments['span.t-header__qty'] = '<span class="t-header__qty">' . WC()->cart->get_cart_contents_count() . '</span>';
+            $fragments['span.t-header__total'] =  '<span class="t-header__total">'. WC()->cart->get_cart_subtotal() .'</span>';
+
+            return $fragments;
+        }
+    }

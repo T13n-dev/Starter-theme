@@ -1,0 +1,76 @@
+.t-blog-carousel {
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__left {
+      img {
+        width: 100%;
+        height: auto;
+      }
+  }
+
+  &__title {
+    a {
+      color: $blue;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      text-decoration: none;
+    }
+  }
+
+  &__date {
+    color: $color-text5;
+    font-size: 1rem;
+  }
+
+  &__excerpt {
+    line-height: 1.5rem;
+    font-size: 1rem;
+    color:$color-text6;
+    margin: 1.4rem 0;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    .owl-prev {
+      cursor: pointer;
+      left: auto;
+      right: 2.2rem;
+      top: -37%;
+      display: block;
+      font-size: 1rem;
+      color: $black;
+      line-height: 2.8rem;
+      position: absolute;
+      opacity: 1;
+      z-index: 100;
+    }
+    .owl-next {
+      cursor: pointer;
+      left: auto;
+      right: .5rem;
+      top: -37%;
+      display: block;
+      font-size: 1rem;
+      color: $black;
+      line-height: 2.8rem;
+      position: absolute;
+      opacity: 1;
+      z-index: 100;
+    }
+  }
+}

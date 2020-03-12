@@ -39,6 +39,7 @@
     "opensans-npm-webfont": "^1.0.0",
     "owl.carousel": "^2.3.4",
     "roboto-npm-webfont": "^1.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "ReduxFramework/Elusive-Icons": "*"
   }
 }

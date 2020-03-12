@@ -15,6 +15,8 @@ $includes = array (
     'enqueue.php',
     'ajax.php',
     'customizer.php',
+    'cpt.php',
+    'widgets.php',
     'admin/function-admin.php', // setup admin functions
     'init-template.php' // setup theme template
 );

@@ -10,9 +10,9 @@ if (!function_exists('t_register_scripts')) {
     {
         $css_version = THEME_VERSION . '.' . filemtime(INCLUDE_DIR . 'css/main.min.css');
         wp_enqueue_style('main-styles', INCLUDE_DIR_URI . 'css/main.min.css', array(), $css_version);
-    
-        $js_version = THEME_VERSION . '.' . filemtime(INCLUDE_DIR . 'js/main.min.js');
-        wp_enqueue_script('main-script', INCLUDE_DIR_URI . 'js/main.min.js', array(), $js_version, true);
+
+        $js_version = THEME_VERSION . '.' . filemtime(INCLUDE_DIR . 'js/main.js');
+        wp_enqueue_script('main-script', INCLUDE_DIR_URI . 'js/main.js', array(), $js_version, true);
     }
 }
 add_action('wp_enqueue_scripts', 't_register_scripts');

@@ -1,0 +1,53 @@
+body,html {
+    overflow: hidden;
+}
+
+.t-loader {
+    background: $white;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999999;
+    display: grid;
+    
+
+    svg {
+        width: 13rem;
+        justify-self: center;
+        align-self: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #Logo {
+        opacity: 0;
+    }
+    
+    svg #Logo {
+        animation-duration: 2s;
+        animation-name: animateLogo;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        mix-blend-mode: overlay;
+    }
+    
+    @keyframes animateLogo {
+        from {
+            transform: translateX(0) translateY(0);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(75px) translateY(0px);
+            opacity: 1;
+        }
+    }
+    
+    /* SVG */
+    .cls-1{fill:#F5F5F5;}
+    .cls-2{fill:#434e52;}
+    .cls-3{fill: $primary-color;}
+    .cls-4{fill:#434e52;}
+    .cls-5{fill:#949494;}
+}

@@ -3,9 +3,8 @@
 /**
  * Homepage functions
  * 
- * @package tstarter
+ * @package tstarter/template-functions/homepage-func
  */
-
 
 if (!function_exists('t_slider_shortcode')) {
     function t_slider_shortcode()
@@ -125,6 +124,8 @@ if (!function_exists('t_product_carousel')) {
                     wp_reset_query();
                     ?>
                 </ul>
+                <div class="t-product-items t-product-carousel__nav">
+                </div>
             </div>
         </section>
     <?php
@@ -152,39 +153,39 @@ if (!function_exists('t_banner_products')) {
                 )
             );
         }
-
     ?>
-        <section class="t-banner-products t-product-carousel container">
-            <div class="t-banner-products__image">
-                <img src="<?php echo esc_url($banner['image']); ?>" alt="">
-                <div class="t-banner-products__image-content">
-                    <div class="t-banner-products__title">
-                        <?php echo esc_html($banner['caption']); ?>
-                    </div>
-                    <div class="t-banner-products__description">
-                        <?php echo esc_html($banner['content']); ?>
-                    </div>
-                    <a href="<?php echo esc_url($banner['action_link']); ?>" class="t-banner-products__link">
-                        <?php echo esc_html($banner['action_text']); ?>
-                    </a>
+    <section class="t-banner-products t-product-carousel container">
+        <div class="t-banner-products__image">
+            <img src="<?php echo esc_url($banner['image']); ?>" alt="">
+            <div class="t-banner-products__image-content">
+                <div class="t-banner-products__title">
+                    <?php echo esc_html($banner['caption']); ?>
                 </div>
+                <div class="t-banner-products__description">
+                    <?php echo esc_html($banner['content']); ?>
+                </div>
+                <a href="<?php echo esc_url($banner['action_link']); ?>" class="t-banner-products__link">
+                    <?php echo esc_html($banner['action_text']); ?>
+                </a>
             </div>
-            <div class="t-banner-products__body">
-                <ul class="t-banner-products__items owl-carousel owl-theme">
-                    <?php
-                    if ($products->have_posts()) :
-                        while ($products->have_posts()) : $products->the_post();
+        </div>
+        <div class="t-banner-products__body t-product-carousel__body">
+            <ul class="t-banner-products__items owl-carousel owl-theme">
+                <?php
+                if ($products->have_posts()) :
+                    while ($products->have_posts()) : $products->the_post();
 
-                            wc_get_template_part('content', 'product');
+                        wc_get_template_part('content', 'product');
 
-                        endwhile;
-                    endif;
-
-                    wp_reset_query();
-                    ?>
-                </ul>
+                    endwhile;
+                endif;
+                wp_reset_query();
+                ?>
+            </ul>
+            <div class="t-banner-products t-product-carousel__nav">
             </div>
-        </section>
+        </div>
+    </section>
     <?php
     }
 }
@@ -227,7 +228,7 @@ if (!function_exists('t_banner_products_secondary')) {
                     </a>
                 </div>
             </div>
-            <div class="t-banner-products__body">
+            <div class="t-banner-products__body t-product-carousel__body">
                 <ul class="t-banner-products__items owl-carousel owl-theme">
                     <?php
                     if ($products->have_posts()) :
@@ -241,6 +242,7 @@ if (!function_exists('t_banner_products_secondary')) {
                     wp_reset_query();
                     ?>
                 </ul>
+                <div class="t-banner-products t-product-carousel__nav"></div>
             </div>
         </section>
     <?php
@@ -279,6 +281,87 @@ if (!function_exists('t_product_intro_secondary')) {
                 </div>
             <?php  } ?>
         </section>
-        <?php
+    <?php
+    }
+}
+
+if (!function_exists('t_blog_carousel')) {
+    function t_blog_carousel()
+    {
+
+        $title = get_field('blog_caption');
+        $blog_ids = get_field('blog_ids');
+
+        if ($blog_ids) {
+            $arr_blogs = explode(',', $blog_ids);
+
+            $blogs = new WP_Query(
+                array(
+                    'post_type' => 'post',
+                    'post__in' => $arr_blogs
+                )
+            );
+        }
+    ?>
+        <section class="t-blog-items t-blog-carousel container">
+            <div class="t-blog-items__head">
+                <h2> <?php echo esc_html( $title ); ?> </h2>
+            </div>
+            <div class="t-blog-items__body t-blog-carousel__body">
+                <ul class="t-blog-items__blogs owl-carousel owl-theme">
+                    <?php
+                    if ($blogs->have_posts()) :
+                        while ($blogs->have_posts()) :
+                            $blogs->the_post();
+                            if (locate_template('template-parts/content-carousel.php') != '') {
+                                get_template_part('template-parts/content', 'carousel');
+                            }
+                        endwhile;
+                    endif;
+                    wp_reset_query();
+                    ?>
+                </ul>
+                <div class="t-blog-items t-blog-carousel__nav"></div>
+            </div>
+        </section>
+    <?php
+    }
+}
+
+if (!function_exists('t_brand_carousel')) {
+    function t_brand_carousel()
+    {
+        $brands = get_field('brand_ids');
+
+        if ($brands) {
+            $arr_brands = explode(',', $brands);
+
+            $blogs = new WP_Query(
+                array(
+                    'post_type' => 'branding_cpt',
+                    'post__in' => $arr_brands
+                )
+            );
+        }
+    ?>
+        <section class='t-brand-carousel container'>
+            <ul class='t-brand-carousel__brands owl-carousel owl-theme'>
+                <?php
+                    if ($blogs->have_posts()) :
+                    while ($blogs->have_posts()) : $blogs->the_post();
+                ?>
+                    <li>
+                        <?php
+                        the_post_thumbnail();
+                        ?>
+                    </li>
+                <?php
+                    endwhile;
+                    endif;
+                    wp_reset_query();
+                ?>
+            </ul>
+        </section>
+    <?php
     }
 }
