@@ -265,9 +265,13 @@
     text-align: left;
     ul {
       li {
-        font-family: $montserrat;
-        font-weight: 600;
-        padding: .2rem 0;
+        padding: .3rem 0;
+        a {
+          color: $black;
+          font-family: $montserrat;
+          font-weight: 500;
+          text-decoration: none;
+        }
       }
     }
   }

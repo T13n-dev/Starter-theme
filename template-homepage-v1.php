@@ -17,7 +17,6 @@ get_header();
          * 
          */
          do_action( 't_homepage' );
-
     ?>
 
 </main> 

@@ -15,7 +15,7 @@
             <div class="t-blog-carousel__right">
                 <div class="t-blog-carousel__content">
                     <div class="t-blog-carousel__title">
-                        <a href="#">
+                        <a href="<?php the_permalink(); ?>">
                             <?php the_title(); ?>
                         </a>
                     </div>

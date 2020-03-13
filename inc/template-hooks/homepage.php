@@ -1,8 +1,8 @@
 <?php 
     /**
-     * Template Hooks
+     * Main homepage Hooks
      * 
-     * @package tstarter
+     * @package tstarter/inc
      */
     add_action('t_homepage', 't_slider_shortcode', 5); 
     add_action('t_homepage', 't_product_intro', 10);

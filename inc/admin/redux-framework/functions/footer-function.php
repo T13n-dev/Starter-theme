@@ -3,7 +3,7 @@
 /**
  * Footer functions
  * 
- * @package @package tstarter/inc/admin/redux-framework/functions
+ * @package tstarter/inc/admin/redux-framework/functions
  */
 
 if (!function_exists('t_apply_footer_contact_caption')) {

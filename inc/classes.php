@@ -6,7 +6,6 @@
  * @package tstarter/inc
  */
 
-
 if ( !function_exists('t_body_classes') ) {
     function t_body_classes( $classes ) {
        

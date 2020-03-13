@@ -2,8 +2,6 @@
 /** Primary Sass file **/
 /** ***************** **/ 
 
-
-
 // Sass utilities
 @import "sass-utils/variables";
     // Fonts default
@@ -43,3 +41,4 @@
 // Page
 @import "pages/home";
 @import "pages/blog";
+@import "pages/single";

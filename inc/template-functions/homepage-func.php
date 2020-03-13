@@ -313,8 +313,8 @@ if (!function_exists('t_blog_carousel')) {
                     if ($blogs->have_posts()) :
                         while ($blogs->have_posts()) :
                             $blogs->the_post();
-                            if (locate_template('template-parts/content-carousel.php') != '') {
-                                get_template_part('template-parts/content', 'carousel');
+                            if (locate_template('template-parts/content-blog-carousel.php') != '') {
+                                get_template_part('template-parts/content-blog', 'carousel');
                             }
                         endwhile;
                     endif;
