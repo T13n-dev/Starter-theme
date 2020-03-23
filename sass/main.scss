@@ -26,12 +26,15 @@
 @import "layouts/navigation";
 @import "layouts/mobile_sidebar";
 @import "layouts/footer";
+@import "layouts/pagination";
 
 // Components 
 @import "components/buttons";
 @import "components/advertisement";
 @import "components/search";
+@import "components/forms";
 @import "components/carousel";
+@import "components/widget";
 @import "components/loadingpage";
 @import "components/backtotop";
 
@@ -42,3 +45,4 @@
 @import "pages/home";
 @import "pages/blog";
 @import "pages/single";
+@import "pages/archive";

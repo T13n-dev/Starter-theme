@@ -114,7 +114,7 @@
                     <div class="t-header__bottom-inner container">
                         <div class="t-header__section t-header__section--left">
                             <div class="t-header__category-list">
-                                <p>Shop By</p>
+                                <span>Shop By</span>
                                 <h2>Categories </h2>
                             </div>
                             <?php 

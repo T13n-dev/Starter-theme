@@ -1,0 +1,50 @@
+.t-archive {
+    padding-top: 2.8rem;
+    display: grid;
+    grid-template-columns: auto 240px;
+    grid-column-gap: 5rem;
+    
+    &__header {
+        padding: 0 0 1.4rem;
+        border-bottom: $border2;
+        margin-bottom: 2.8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        h1 {
+            line-height: 25px;
+            font-size: 25px;
+            font-weight: 700;
+            padding: 0px;
+            color: $blue;
+        }
+        
+        @extend .woocommerce-breadcrumb;
+
+        .woocommerce-breadcrumb {
+            margin: 0px !important;
+            padding: 0px !important;
+        }
+    }
+
+    &__main {
+        margin-bottom: 3.5rem;
+        .t-products {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0 !important;
+        }
+
+        .t-products.t-columns-4 {
+            li {
+                flex: 0 0 25%;
+            }
+        }
+    }
+
+    &__sidebar {
+        margin-bottom: 3.5rem;
+    }
+}

@@ -1,4 +1,23 @@
 <?php 
+    /**
+     * Woo functions
+     * 
+     * @package tstarter/inc/template-functions
+     */
+
+    /** 
+     * * Add class support Woocommerce for pages
+     */
+    if ( !function_exists('t_add_class_woo') ) {
+        function t_add_class_woo( $classes ) {
+            // check if not woo page && is custom template homepage-v1
+            if ( !is_woocommerce() && is_page_template('template-homepage-v1.php') ) {
+               $classes[] = 'woocommerce';
+            }
+
+            return $classes;
+        }
+    }
 
     /**
      * *@hooked woocommerce_show_product_loop_sale_flash - 10
@@ -72,3 +91,56 @@
             return $fragments;
         }
     }
+
+    /**
+     * *@hooked woocommerce_catalog_ordering - 30
+     */
+    if ( !function_exists('t_archive_catalog_ordering') ) {
+        function t_archive_catalog_ordering() {
+            if ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) {
+                return;
+            }
+            $show_default_orderby    = 'menu_order' === apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', 'menu_order' ) );
+            $catalog_orderby_options = apply_filters(
+                'woocommerce_catalog_orderby',
+                array(
+                    'menu_order' => __( 'Sắp xếp', THEME_DOMAIN ),
+                    'popularity' => __( 'Sắp xếp theo mức phổ biến', THEME_DOMAIN ),
+                    'rating'     => __( 'Sắp xếp theo mức đánh giá trung bình', THEME_DOMAIN ),
+                    'date'       => __( 'Sắp xếp sản phẩm mới nhất', THEME_DOMAIN ),
+                    'price'      => __( 'Sắp xếp theo giá: thấp đến cao', THEME_DOMAIN ),
+                    'price-desc' => __( 'Sắp xếp theo giá: cao đến thấp', THEME_DOMAIN ),
+                )
+            );
+    
+            $default_orderby = wc_get_loop_prop( 'is_search' ) ? 'relevance' : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', '' ) );
+            $orderby         = isset( $_GET['orderby'] ) ? wc_clean( wp_unslash( $_GET['orderby'] ) ) : $default_orderby; // WPCS: sanitization ok, input var ok, CSRF ok.
+    
+            if ( wc_get_loop_prop( 'is_search' ) ) {
+                $catalog_orderby_options = array_merge( array( 'relevance' => __( 'Relevance', 'woocommerce' ) ), $catalog_orderby_options );
+    
+                unset( $catalog_orderby_options['menu_order'] );
+            }
+    
+            if ( ! $show_default_orderby ) {
+                unset( $catalog_orderby_options['menu_order'] );
+            }
+    
+            if ( ! wc_review_ratings_enabled() ) {
+                unset( $catalog_orderby_options['rating'] );
+            }
+    
+            if ( ! array_key_exists( $orderby, $catalog_orderby_options ) ) {
+                $orderby = current( array_keys( $catalog_orderby_options ) );
+            }
+    
+            wc_get_template(
+                'loop/orderby.php',
+                array(
+                    'catalog_orderby_options' => $catalog_orderby_options,
+                    'orderby'                 => $orderby,
+                    'show_default_orderby'    => $show_default_orderby,
+                )
+            );
+        }
+     }

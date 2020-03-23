@@ -36,6 +36,8 @@ if (!class_exists('T_ReduxOptions')) {
                 'intro_text'            => '',
                 'dev_mode'              => false,
                 'customizer'            => true,
+                // cdn: https://ghostpool.ticksy.com/article/4507/
+                'use_cdn'               => false,
                 'show_import_export'    => false,
                 'footer_credit'         => '&nbsp;',
                 'show_options_object'   => false

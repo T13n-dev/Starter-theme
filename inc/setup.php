@@ -106,7 +106,14 @@ if( !function_exists( 'declare_theme_support' ) ) {
 		 */
 		add_theme_support( 'responsive-embeds' );
 		
-		// ! default theme options   
+
+		/**
+		 * Woocomerce
+		 */
+		add_theme_support( 'woocommerce' );
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
 	}
 }
 
@@ -148,4 +155,3 @@ register_nav_menus(
 		'mobile'  => __( 'Mobile Menu', THEME_DOMAIN )
 	) 
 );
-

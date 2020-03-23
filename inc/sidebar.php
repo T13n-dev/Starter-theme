@@ -1,5 +1,4 @@
 <?php
-
 defined('ABSPATH') || exit;
 
 if (!class_exists('HuuTien_Sidebar_Walker_Mega')) {

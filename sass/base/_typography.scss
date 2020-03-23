@@ -5,7 +5,31 @@
 html, body {
   font-family: $font-primary;
   font-size: $font-base-size;
-  color: $color-text;
-  font-weight: 300;
+  color: $color-text9;
+  font-weight: 500;
+  line-height: 1.6rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  padding: 10px 0;
+  margin: 0;
+  font-weight: 500;
+  color: $black;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+p {
+  line-height: 1.6rem;
+}
+
+ul, ol {
+  margin: 0 0 1.8rem 1.1rem;
+}
+
+ul {
+  list-style: disc;
+}

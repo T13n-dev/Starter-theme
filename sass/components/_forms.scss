@@ -1,0 +1,19 @@
+.t-form__ordering {
+    border: $border2;
+    select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+
+        color: $color-text10;
+        float: left;
+        padding: .5rem;
+        background: $white;
+        text-transform: capitalize;
+        letter-spacing: .05rem;
+        font-size: .9rem;
+        border: 0;
+        width: 18rem;
+        background: #fff url(../images/both-direction-arr.png) no-repeat right .75rem center;
+        background-size: .5rem .7rem;
+    }
+}

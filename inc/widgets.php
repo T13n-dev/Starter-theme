@@ -17,18 +17,18 @@ if ( !function_exists('t_widgets_classes') ) {
             $sidebar_id   = $params[0]['id'];
 			$widget_count = count( $sidebars_widgets_count[ $sidebar_id ] );
 			
-            $widget_classes = 't-widget__count-' . $widget_count;
+            $widget_classes = 't-widget-footer__count-' . $widget_count;
 
             if ( 5 === $widget_count ) {
-				$widget_classes .= ' t-widget__col-5';
+				$widget_classes .= ' t-widget-footer__col-5';
 			} elseif ( 4 === $widget_count ) {
-				$widget_classes .= ' t-widget__col-4';
+				$widget_classes .= ' t-widget-footer__col-4';
 			} elseif ( 3 === $widget_count ) {
-				$widget_classes .= ' t-widget__col-3';
+				$widget_classes .= ' t-widget-footer__col-3';
 			} elseif ( 2 === $widget_count ) {
-				$widget_classes .= ' t-widget__col-2';
+				$widget_classes .= ' t-widget-footer__col-2';
 			} elseif ( 1 === $widget_count ) {
-				$widget_classes .= ' t-widget__col-1';
+				$widget_classes .= ' t-widget-footer__col-1';
 			}
 
             $params[0]['before_widget'] = str_replace( 'dynamic-classes', $widget_classes, $params[0]['before_widget'] );          
@@ -49,9 +49,33 @@ if( !function_exists('t_add_widgets') ) {
                 'name'          => __( 'Footer', THEME_DOMAIN ),
                 'id'            => 'footer',
                 'description'   => __( 'Full sized footer widget with dynamic grid', THEME_DOMAIN ),
-                'before_widget' => '<div id="%1$s" class="t-widget__item %2$s dynamic-classes" >',
+                'before_widget' => '<div id="%1$s" class="t-widget-footer__item %2$s dynamic-classes" >',
                 'after_widget'  => '</div>',
-                'before_title'  => '<h3 class="widget-title">',
+                'before_title'  => '<h3 class="t-widget-footer__title">',
+                'after_title'   => '</h3>',
+            )
+        );
+
+        register_sidebar(
+            array(
+                'name'          => __( 'Single sidebar', THEME_DOMAIN ),
+                'id'            => 'single',
+                'description'   => __( 'Add items for single product sidebar', THEME_DOMAIN ),
+                'before_widget' => '',
+                'after_widget'  => '</div>',
+                'before_title'  => '',
+                'after_title'   => '',
+            ) 
+        );
+
+        register_sidebar(
+            array(
+                'name'          => __( 'Archive sidebar', THEME_DOMAIN ),
+                'id'            => 'archive',
+                'description'   => __( 'Add items for archive product sidebar', THEME_DOMAIN ),
+                'before_widget' => '<aside id="%1$s" class="t-widget %1$s %2$s">',
+                'after_widget'  => '</aside>',
+                'before_title'  => '<h3 class="t-widget__title">',
                 'after_title'   => '</h3>',
             )
         );
@@ -64,7 +88,7 @@ if( !function_exists('t_add_widgets') ) {
 
 class T_Widget extends WP_Widget {
 
-    public  $widget_options = array(
+    public $widget_options = array(
         'classname' => 't-widget-contact',
         'description' => 'Address Information'
     );
@@ -82,11 +106,11 @@ class T_Widget extends WP_Widget {
 
         echo $args['before_widget'];
         ?>
-        <h2 class="t-widget__title">
+        <h2 class="t-widget-footer__title">
         <?php echo apply_filters('t_footer_contact_caption', esc_html__('Liên hệ', THEME_DOMAIN) ); ?>
         </h2>
-        <div class="t-widget__contact">
-            <div class="t-widget__contact-address">
+        <div class="t-widget-footer__contact">
+            <div class="t-widget-footer__contact-address">
                 <?php 
                     if ( has_filter('t_footer_address_v1') ) {
 
@@ -94,7 +118,7 @@ class T_Widget extends WP_Widget {
                     }
                 ?>
             </div>
-            <div class="t-widget__contact-phone">
+            <div class="t-widget-footer__contact-phone">
               
                 <?php echo apply_filters('t_footer_address_v2', 'Type your address in the option '); ?> 
             </div>

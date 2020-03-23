@@ -1,0 +1,27 @@
+.t-pagination {
+    ul {
+        font-size: 1rem;
+        border: 0 !important;
+        li {
+            border: 0 !important;
+            margin: .5rem !important;
+
+            span.current {
+                background: transparent !important;
+                color: $black !important;
+                padding: .5rem !important;
+            }
+
+            a {
+                padding: .5rem !important;
+                color: #595959;
+
+                &:hover,
+                &:focus {
+                    background: transparent !important;
+                    color: $orange !important;
+                }
+            }
+        }
+    }
+}

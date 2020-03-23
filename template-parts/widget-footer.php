@@ -7,7 +7,7 @@
  */
 ?>
     <div class="footer-top container">
-        <div class="t-widget">
+        <div class="t-widget-footer">
             <?php
             if (is_active_sidebar('footer')) {
                 dynamic_sidebar('footer');

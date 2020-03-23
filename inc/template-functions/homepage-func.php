@@ -3,7 +3,7 @@
 /**
  * Homepage functions
  * 
- * @package tstarter/template-functions/homepage-func
+ * @package tstarter/inc/template-functions
  */
 
 if (!function_exists('t_slider_shortcode')) {

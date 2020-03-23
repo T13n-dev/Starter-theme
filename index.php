@@ -19,4 +19,6 @@ get_header();
     endif;
     ?>
 </main>
-<?php get_footer(); ?>
+
+<?php 
+get_footer();

@@ -122,7 +122,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 
     &__col {
       &:hover & {
@@ -235,6 +235,7 @@
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
+      margin: 0;
       li {
         list-style: none;
         a {
@@ -404,6 +405,10 @@
       text-transform: capitalize;
     }
   }
+
+  &__blogs {
+    list-style: none;
+  }
 }
 
 .t-brand-carousel {
@@ -422,5 +427,9 @@
         }
       }
     }
+  }
+
+  &__brands {
+    list-style: none;
   }
 }

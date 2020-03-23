@@ -1,29 +1,28 @@
 <?php
 
 /**
- * Main homepage Hooks
+ * Main Single Hooks
  * 
- * @package tstarter/inc
+ * @package tstarter/inc/template-hooks
  */
 
+// single product
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
-/**
- * Hook: woocommerce_single_product_summary.
- *
- * @hooked woocommerce_template_single_title - 5
- * @hooked woocommerce_template_single_rating - 10
- * @hooked woocommerce_template_single_price - 10
- * @hooked woocommerce_template_single_excerpt - 20
- * @hooked woocommerce_template_single_add_to_cart - 30
- * @hooked woocommerce_template_single_meta - 40
- * @hooked woocommerce_template_single_sharing - 50
- * @hooked WC_Structured_Data::generate_product_data() - 60
- */
-// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title');
-// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating');
-// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price');
-// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt');
-// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart');
-// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing');
-// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title');
+// content single product
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
 
+add_action('woocommerce_before_single_product_summary', 't_show_product_loop_sale_flash', 10);
+
+// 
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 10);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 20);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 30);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 40);
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);

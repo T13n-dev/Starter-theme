@@ -335,7 +335,8 @@ function save_meta_cpt_add_new($post_id)
 
 function delete_child_post($post_id)
 {
-    if (get_post_type($_GET['post']) != 'cpt-slider') {
+    if ( !$_GET ) return;
+    if (get_post_type($_GET['post']) !== 'cpt-slider') {
         return;
     }
 

@@ -1,7 +1,3 @@
-body,html {
-    overflow: hidden;
-}
-
 .t-loader {
     background: $white;
     bottom: 0;
@@ -11,8 +7,8 @@ body,html {
     top: 0;
     z-index: 999999;
     display: grid;
+    overflow: hidden;
     
-
     svg {
         width: 13rem;
         justify-self: center;

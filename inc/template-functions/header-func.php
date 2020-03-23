@@ -3,7 +3,7 @@
 /**
  * Header functions
  * 
- * @package tstarter/template-functions/homepage-func
+ * @package tstarter/inc/template-functions
  */
 
 if (!function_exists('t_preload')) {
@@ -12,7 +12,7 @@ if (!function_exists('t_preload')) {
         $t_footer = apply_filters('t_preload', true);
 
         if ($t_footer) {
-    ?>
+        ?>
         <div class="t-loader">
             <svg id="t-loader__svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 355.44 386.95">
                 <g id="Browser">

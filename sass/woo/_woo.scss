@@ -13,6 +13,10 @@
         }
       }
     }
+
+    > ul {
+      margin: 0 !important;
+    }
   }
 
   &__product {
@@ -32,7 +36,9 @@
         background-color: $orange;
         color: $white;
         height: 1.5rem;
+        min-height: 1.5rem;
         width: 3rem;
+        min-width: 3rem;
         font-weight: 500;
         font-size: 0.8rem;
         line-height: 0.4rem;
@@ -62,7 +68,7 @@
 
     &:after {
       content: "";
-      right: 0rem;
+      right: -.1rem;
       top: 2rem;
       background: $border-color2;
       bottom: 30%;
@@ -86,13 +92,18 @@
   }
 
   &__product-detail {
-    min-height: 6.5rem;
-    margin: 1rem;
+    min-height: 7.5rem;
+    margin: .5rem;
     text-align: left;
     position: relative;
 
     a {
       text-decoration: none;
+    }
+
+    
+    .star-rating {
+      float: left;
     }
   }
 
@@ -149,17 +160,30 @@
         font-weight: 700;
       }
     }
+
+    > span {
+      color: $blue;
+      font-size: 1.2rem;
+      font-weight: 700;
+      > span {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-decoration: none;
+        margin-right: 0.5rem;
+      }
+    }
   }
 
   &__product-buttons {
     opacity: 0;
-    transition: all 300ms ease;
-    position: relative;
+    transition: all .3s ease;
+    width: 100%;
+    position: absolute;
     bottom: 0;
     background: $white;
     color: $black;
     z-index: 5;
-    line-height: 2rem;
+    line-height: 0 !important;
 
     a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart,
     a.button.product_type_variable.add_to_cart_button {
@@ -214,6 +238,14 @@
         @extend %faShoppingCartStyle;
       }
     }
+
+    a.button.product_type_simple {
+      @extend %buttonContentProductWoo;
+
+      @include fontawesome-brands-before($fa-var-eye) {
+        @extend %faShoppingCartStyle;
+      }
+    }
   }
 
   &__nav {
@@ -225,7 +257,7 @@
     width: 100%;
     height: 100%;
     .owl-prev {
-      left: 1.1rem;
+      left: 1rem;
       right: auto;
       top: 35%;
       background-color: $white;
@@ -238,7 +270,6 @@
       position: absolute;
       text-align: center;
       opacity: 0;
-      margin: auto !important;
       border: $border;
       border-radius: 50%;
       z-index: 100;
@@ -246,7 +277,7 @@
     }
 
     .owl-next {
-      right: 1.1rem;
+      right: 1rem;
       left: auto;
       top: 35%;
       background-color: $white;
@@ -259,7 +290,6 @@
       position: absolute;
       text-align: center;
       opacity: 0;
-      margin: auto !important;
       border: $border;
       border-radius: 50%;
       z-index: 100;
@@ -269,11 +299,6 @@
 }
 
 // Mini Cart
-.woocomerce {
-
-
-}
-
 ul.product_list_widget {
   padding: .5rem;
   max-height: 230px;
@@ -387,3 +412,70 @@ ul.cart_list {
   }
 }
 
+// Notice 
+.woocommerce-notices-wrapper {
+  .woocommerce-message {
+    border-top-color: $primary-color;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 1em 1em 3.5em !important;
+    margin: 0 0 3em !important;
+    position: relative;
+    background: $white;
+    border: $border4;
+    color: #808080;
+    a.button.wc-forward {
+      order: 3;
+      background-color: $orange;
+      color: $black;
+      padding: 1rem 1.6rem;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .9rem;
+      font-weight: 600;
+      width: auto;
+      border: none;
+      border-radius: .2rem;
+      cursor: pointer;
+      display: unset;
+    }
+
+    &:before {
+      background-color: $black;
+      content: "\2713";
+      height: 2.6rem;
+      width: 1.5rem;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 1em;
+      font-size: 1em;
+      line-height: 1.5;
+      color: $white;
+      text-align: center;
+      padding-top: 1em;
+    }
+  }
+}
+
+// breadcrumb
+.woocommerce-breadcrumb {
+  border-bottom: 0px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  font-family: $montserrat;
+  color: $black;
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  a {
+    font-family: $montserrat;
+    position: relative;
+    color: $black !important;
+    padding: 0 0.1rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+}

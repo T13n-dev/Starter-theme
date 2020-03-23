@@ -6472,14 +6472,18 @@ jQuery(function ($) {
             this.backToTop();
             this.cateMenuToggle();
             this.megaMenuPosition();
+            // Carousel
             this.slider();
             this.productsCarousel();
             this.itemsBannerCarousel();
             this.blogsCarousel();
             this.brandCarousel();
+            this.thumbsCarousel();
+            this.relatedCarousel();
+
             this.miniCartToggle();
             this.fixedHeader();
-
+            this.minus_plus_product_qty();
             /**
              * Page Loader
              */
@@ -6669,11 +6673,9 @@ jQuery(function ($) {
         }
 
         brandCarousel() {
-            var $brandsCarousel = $(".t-brand-carousel__brands");
+            let $brandsCarousel = $(".t-brand-carousel__brands");
 
-            if ($brandsCarousel.length === 0) {
-                return;
-            }
+            if ($brandsCarousel.length === 0)  return;
 
             $brandsCarousel.owlCarousel({
                 loop: true,
@@ -6695,6 +6697,60 @@ jQuery(function ($) {
                     },
                     1300: {
                         items: 6
+                    }
+                }
+            });
+        }
+
+        thumbsCarousel() {
+            $('.product .flex-control-thumbs').addClass('owl-carousel owl-theme');
+            $('.product .flex-control-thumbs').owlCarousel({
+                loop: true,
+                items: 3,
+                dots: false,
+                nav: true,
+                margin: 15,
+                responsive: {
+                    320: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    991: {
+                        items: 3
+                    },
+                    1299: {
+                        items: 3
+                    }
+                }
+            });
+        }
+
+        relatedCarousel() {
+            const $relatedCarousel = $(".t-single__related-items");
+
+            if ($relatedCarousel.length === 0)  return;
+            $relatedCarousel.owlCarousel({
+                loop: false,
+                items: 5,
+                dots: false,
+                nav: true,
+                autoplay: false,
+                responsiveClass: true,
+                margin: 5,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    770: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 2
+                    },
+                    1300: {
+                        items: 5
                     }
                 }
             });
@@ -6753,10 +6809,28 @@ jQuery(function ($) {
                         }
                     } );
                 }
-
-
             }
         }
+
+        minus_plus_product_qty() {
+            $('.t-single__quantity').on('click', '.t-single__quantity--minus', function (e) {
+                var qty  = $(this).parent().find('input.t-single__quantity--total');
+                var val  = parseInt(qty.val());
+                var step = qty.attr('step');
+                step     = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+                if (val > 0) {
+                    qty.val(val - step).change();
+                }
+            });
+            $('.t-single__quantity').on('click', '.t-single__quantity--plus', function (e) {
+                var qty  = $(this).parent().find('input.t-single__quantity--total');
+                var val  = parseInt(qty.val());
+                var step = qty.attr('step');
+                step     = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+                qty.val(val + step).change();
+            });
+        }
+    
     }
 
     new Tstarter();

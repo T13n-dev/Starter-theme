@@ -1,0 +1,91 @@
+.t-widget {
+    list-style: outside none none;
+    margin: 0 0 40px;
+    overflow: hidden;
+    padding: 0;
+    border: 3px solid #f0f0f0;
+
+    &__title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+        padding: 15px 20px;
+        position: relative;
+        border-bottom: 0;
+
+        &:before {
+            border-bottom: 2px solid #FEBD69;
+            bottom: 0;
+            content: "";
+            left: 20px;
+            margin: 0 auto;
+            position: absolute;
+            right: auto;
+            width: 50px;
+        }
+    }
+
+    .tagcloud {
+        padding: 15px 20px;
+        a {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 13px !important;
+            border: 1px solid #f0f0f0;
+            margin: 4px 2px;
+            border-radius: 4px;
+            font-weight: 400;
+            word-break: break-all;
+            color: #8c8c8c;
+            text-decoration: none;
+        }
+    }
+
+    form {
+        padding: 15px 20px;
+
+        .price_slider_amount {
+            display: flex;
+            flex-direction: column;
+            .price_label {
+                order: 2;
+            }
+
+            button {
+                order: 3;
+            }
+        }
+
+        .price_slider_wrapper {
+            .price_slider {
+                background-color: $orange !important;
+            }
+
+            .ui-slider-range.ui-widget-header.ui-corner-all {
+                background-color: $blue !important;
+            }
+
+            .ui-slider-handle.ui-state-default.ui-corner-all {
+                background-color:  $blue !important;
+            }
+        }
+    }
+
+    ul {
+        padding: 15px 20px;
+        margin: 0;
+        list-style: none;
+        li {
+            a {
+                text-decoration: none;
+                position: relative;
+                display: inline-block;
+                font-weight: 400;
+                word-break: break-all;
+                color: #8c8c8c;
+                font-size: .9rem;
+                padding: 4px 0;
+            }
+        }
+    }
+}

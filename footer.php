@@ -8,7 +8,7 @@
 
 defined('ABSPATH') || exit;
 ?>
-        <footer>
+        <footer class="t-footer">
 
             <?php
             get_template_part('template-parts/widget', 'footer');

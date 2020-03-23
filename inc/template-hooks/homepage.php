@@ -2,8 +2,9 @@
     /**
      * Main homepage Hooks
      * 
-     * @package tstarter/inc
+     * @package tstarter/inc/template-hooks
      */
+
     add_action('t_homepage', 't_slider_shortcode', 5); 
     add_action('t_homepage', 't_product_intro', 10);
     add_action('t_homepage', 't_product_carousel', 15);
@@ -14,7 +15,7 @@
     add_action('t_homepage', 't_brand_carousel', 40);
 
     /**
-     * Woocomerce Hooks
+     * Woocommerce Hooks
      * 
      * * content-product
      * */
@@ -29,4 +30,5 @@
     /**
      * Filters
      */
+    add_filter( 'body_class', 't_add_class_woo' ); 
     add_filter( 'woocommerce_add_to_cart_fragments', 't_mini_cart_fragment' );
