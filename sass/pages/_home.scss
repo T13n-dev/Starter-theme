@@ -1,36 +1,9 @@
-.site {
-  background-color: $white;
-  opacity: 1;
-}
-
-.main {
-  margin: 0 auto;
-}
-
-.container {
-  width: $theme-container;
-  margin: 0 auto;
-
-  @include breakpoint-down(xl) {
-    width: 67rem;
-  }
-
-  @include breakpoint-down(lg) {
-    width: 52rem;
-  }
-
-  @include breakpoint-down(md) {
-    width: auto;
-    margin: 0rem 1.4rem !important;
-  }
-}
-
 // Introduction blocks-section
 .t-intro {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 
   &__col {
     &:hover & {
@@ -89,7 +62,7 @@
   }
 
   &__image {
-    margin-right: 6%;
+    padding-right: 6%;
     flex: 0 0 50%;
     height: 100%;
   }
@@ -122,7 +95,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
-    margin-bottom: 5rem;
+    padding-bottom: 5rem;
 
     &__col {
       &:hover & {
@@ -212,11 +185,18 @@
       align-items: center;
       color: $black;
     }
+
+    &__image {
+      img {
+        width: 100%;
+      }
+    }
   }
 }
 
 // Carousel section
 .t-product-items {
+  padding-bottom: 5rem;
   &__head {
     display: flex;
     border-bottom: $border2;
@@ -270,7 +250,7 @@
   display: grid;
   grid-template-columns: auto 65rem;
   grid-column-gap: 1rem;
-  margin-bottom: 5rem;
+  padding-bottom: 5rem;
 
   &__image {
     font-family: $montserrat;
@@ -390,7 +370,7 @@
 }
 
 .t-blog-items {
-  margin-bottom: 3rem;
+  padding-bottom: 5rem;
   &__head {
     display: flex;
     border-bottom: $border2;
@@ -412,7 +392,7 @@
 }
 
 .t-brand-carousel {
-  padding-bottom: 2rem;
+  margin-bottom: 5rem;
   ul {
     li {
       margin: 5px 15px;
@@ -432,4 +412,138 @@
   &__brands {
     list-style: none;
   }
+}
+
+/************************* BREAK-POINT *************************/
+@include breakpoint-down(xl) {
+  .t-banner-products {
+    grid-template-columns: auto 47rem;
+  }
+}
+
+@include breakpoint-down(lg) {
+  .t-intro {
+    &__text {
+      font-size: .9rem;
+      line-height: 1.2rem;
+    }
+
+    &__action {
+      font-size: .9rem;
+    }
+  }
+
+  .t-intro-secondary {
+    &__caption {
+      font-size: 1.2rem;
+    }
+
+    &__text {
+      font-size: 1rem;
+    }
+
+    &__action {
+      line-height: .5rem;
+    }
+  }
+
+  .t-banner-products {
+    grid-template-columns: auto 33rem;
+  }
+}
+
+@include breakpoint-down(md) {
+  .t-intro {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 2rem;
+  }
+
+  .t-intro-secondary {
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+    &__caption {
+      font-size: 2rem;
+    }
+
+    &__text {
+      font-size: 1.5rem;
+      line-height: 1.6rem;
+    }
+
+    &__action {
+      line-height: 2rem;
+    }
+  } 
+
+  .t-banner-products {
+    display: block;
+
+    &__image {
+      display: none;
+    }
+  } 
+
+}
+
+@include breakpoint-down(sm) {
+  .t-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 2rem;
+    &__text {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    &__action {
+      font-size: 1.5rem;
+
+      &:after {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .t-product-items {
+    &__head {
+      flex-direction: column;
+
+      h2 {
+        margin: 0 auto;
+      }
+
+      ul {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .t-intro-secondary {
+    &__caption {
+      font-size: 1.5rem;
+    }
+
+    &__text {
+      font-size: 1rem;
+      line-height: 1.6rem;
+    }
+
+    &__action {
+      line-height: 2rem;
+    }
+  }  
+}
+
+@include breakpoint-down(xs) {
+  .t-intro-secondary {
+    &__text {
+      display: none;
+    }
+
+    &__action {
+      display: none;
+    }
+  }  
 }

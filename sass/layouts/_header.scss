@@ -127,7 +127,6 @@
   }
 
   &__bottom-inner {
-    width: $theme-container;
     margin: 0 auto;
     display: flex;
   }
@@ -340,10 +339,6 @@
   /************************* BREAK-POINT *************************/
 
   @include breakpoint-down(xl) {
-    &__top {
-      flex-direction: column;
-    }
-
     &__mobile-menu {
       display: block;
     }
@@ -385,9 +380,7 @@
         all: unset;
       }
     }
-  }
 
-  @include breakpoint-down(lg) {
     &__top {
       flex-direction: row;
     }
@@ -415,6 +408,12 @@
   }
 
   @include breakpoint-down(md) {
+    .t-header__top.t-header__top--fixed {
+      .t-header__top--inner {
+        width: 100% !important;
+      }
+    }
+
     &__header-inner {
       width: 100%;
     }

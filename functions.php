@@ -1,25 +1,26 @@
 <?php 
 /**
- * Functions and definitions
+ * Functions Lord
  * 
  * @package tstarter
  */
 defined( 'ABSPATH' ) || exit;
 
 $includes = array (
-    'constants.php',
-    'setup.php',
-    'menu.php',
-    'sidebar.php',
-    'hooks.php',
-    'enqueue.php',
-    'ajax.php',
-    'customizer.php',
-    'cpt.php',
-    'widgets.php',
-    'classes.php',
-    'admin/function-admin.php', // setup admin functions
-    'init-template.php' // setup theme template
+    'constants.php',                // Theme Constant 
+    'setup.php',                    // Theme Setup
+    'menu.php',                     // Custom Menu Walker
+    'category.php',                 // Custom Category Walker
+    'sidebar.php',                  // Custom Vertical Menu Walker
+    'hooks.php',                    // Main Hooks 
+    'enqueue.php',                  // Register resources
+    'ajax.php',                     // Handler Ajax request
+    'customizer.php',               // Add more Customizer
+    'cpt.php',                      // Custom Post Type
+    'widgets.php',                  // Register Widgets
+    'classes.php',                  // Support Classes
+    'admin/function-admin.php',     // Setup Admin functions
+    'init-template.php'             // Theme Template ( include template func and hooks )
 );
 
 foreach ( $includes as $file ) {

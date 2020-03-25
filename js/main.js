@@ -6583,13 +6583,13 @@ jQuery(function ($) {
                     0: {
                         items: 2
                     },
-                    770: {
-                        items: 2
+                    768: {
+                        items: 3
                     },
-                    1000: {
+                    992: {
                         items: 4
                     },
-                    1300: {
+                    1200: {
                         items: 5
                     }
                 }
@@ -6621,13 +6621,13 @@ jQuery(function ($) {
                     0: {
                         items: 2
                     },
-                    770: {
+                    768: {
                         items: 2
                     },
-                    1000: {
-                        items: 3
+                    992: {
+                        items: 2
                     },
-                    1300: {
+                    1200: {
                         items: 4
                     }
                 }
@@ -6657,15 +6657,15 @@ jQuery(function ($) {
                 margin: 5,
                 responsive: {
                     0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 1
+                    },
+                    992: {
                         items: 2
                     },
-                    770: {
-                        items: 2
-                    },
-                    1000: {
-                        items: 2
-                    },
-                    1300: {
+                    1200: {
                         items: 2
                     }
                 }
@@ -6687,15 +6687,15 @@ jQuery(function ($) {
                 margin: 5,
                 responsive: {
                     0: {
-                        items: 2
+                        items: 3
                     },
-                    770: {
-                        items: 2
+                    768: {
+                        items: 3
                     },
-                    1000: {
-                        items: 2
+                    992: {
+                        items: 4
                     },
-                    1300: {
+                    1200: {
                         items: 6
                     }
                 }

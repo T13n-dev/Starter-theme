@@ -13,6 +13,10 @@ add_filter( 't_scroll_to_top', 't_apply_scroll_to_top', 10 );
 
 // Header Hooks
 add_filter( 't_header_sticky', 't_apply_header_sticky', 10 );
+add_filter( 't_shipping1', 't_apply_shipping1', 10 );
+add_filter( 't_shipping2', 't_apply_shipping2', 10 );
+add_filter( 't_contact1', 't_apply_contact1', 10 );
+add_filter( 't_contact2', 't_apply_contact2', 10 );
 
 // Preload Hooks
 add_filter( 't_preload', 't_apply_preload', 10 );

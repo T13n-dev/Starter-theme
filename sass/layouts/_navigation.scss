@@ -19,6 +19,10 @@
       font-size: 1rem;
       font-weight: 500;
     }
+
+    img {
+      border-radius: .6rem;
+    }
   }
 
   &__item--active a {
@@ -73,14 +77,22 @@
     // transform: translateY( 20px );
     transition: all 0.4s ease;
     z-index: 9999;
-    li {
-      display: block;
-      a {
-        font-weight: 400;
-        color: #273647;
-        padding: 5px 0;
-        display: flex;
-        align-items: center;
+    margin: 0;
+    list-style: none;
+
+    ul {
+      margin: 0;
+      list-style: none;
+      li {
+        display: block;
+        a {
+          font-weight: 400;
+          color: #273647;
+          padding: 0 0 .6rem 0;
+          display: flex;
+          line-height: 1.2rem;
+          align-items: center;
+        }
       }
     }
   }
@@ -90,6 +102,9 @@
     min-width: 250px;
     float: left;
     height: auto !important;
+    ul {
+      list-style: none;
+    }
   }
 
   &__megamenu {
@@ -106,7 +121,7 @@
     margin: 0.5rem 0;
     width: 80%;
     background-color: #e3e3e3;
-    height: 0.1rem;
+    height: 1px;
   }
 
   /************************* BREAK-POINT *************************/
