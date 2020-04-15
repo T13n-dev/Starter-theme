@@ -106,3 +106,16 @@ if (!function_exists('t_apply_footer_payment')) {
         return $payment;
     }
 }
+
+if (!function_exists('t_apply_footer_logo')) {
+    function t_apply_footer_logo( array $payment )
+    {
+        global $t_options;
+
+        if (isset($t_options['t_media_logo_footer'])) {
+            $payment = $t_options['t_media_logo_footer'];
+        }
+
+        return $payment;
+    }
+}

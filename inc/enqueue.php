@@ -13,6 +13,8 @@ if (!function_exists('t_register_scripts')) {
 
         $js_version = THEME_VERSION . '.' . filemtime(INCLUDE_DIR . 'js/main.js');
         wp_enqueue_script('main-script', INCLUDE_DIR_URI . 'js/main.js', array(), $js_version, true);
+
+        wp_localize_script('main-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
     }
 }
 add_action('wp_enqueue_scripts', 't_register_scripts');

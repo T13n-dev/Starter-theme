@@ -1,7 +1,7 @@
 <?php
 /**
- * Custom Menu walker by HuuTien
- * ! Còn save meta nua~ ;-((, tao ra 1 core để lưu meta ???
+ * Custom Menu Walker
+ * ! Còn save meta nua~ ;-((, tao ra 1 func để lưu meta ??? (Có bên dưới)
  * @package tstater/inc
  */
 

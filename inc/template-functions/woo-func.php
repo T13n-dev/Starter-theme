@@ -11,9 +11,13 @@
     if ( !function_exists('t_add_class_woo') ) {
         function t_add_class_woo( $classes ) {
             // check if not woo page && is custom template homepage-v1
-            if ( !is_woocommerce() && is_page_template('template-homepage-v1.php') ) {
-               $classes[] = 'woocommerce';
-            }
+            // if ( !is_woocommerce() && is_page_template('template-homepage-v1.php') ) {
+            //    $classes[] = 'woocommerce';
+            // } else if ( is_archive() || is_category() ) {
+            //     $classes[] = 'woocommerce';
+            // }
+            
+            $classes[] = 'woocommerce';
 
             return $classes;
         }
@@ -144,3 +148,17 @@
             );
         }
      }
+
+    /**
+     * *@filter wc_get_rating_html 
+     * 
+     * ! Removed `if statement` to always show rating
+    */
+    if( !function_exists('t_get_rating_html') ) {
+        function t_get_rating_html( $html, $rating, $count) {
+            
+            $html = '<div class="t-product-carousel__star-rating star-rating" role="img">' . wc_get_star_rating_html( $rating, $count ) . '</div>';
+
+            return $html;
+        }
+    }

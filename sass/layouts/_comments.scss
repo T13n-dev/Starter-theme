@@ -1,0 +1,62 @@
+.t-comments {
+    margin: 10px auto 0;
+    clear: both;
+    box-sizing: border-box;
+    padding: 30px;
+    background: #f7f7f7;
+    display: inline-block;
+    width: 100%;
+
+    ol {
+        list-style: none;
+        li {
+            article {
+                padding-bottom: 1rem;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        line-height: 1.5rem;
+        color: $black;
+        margin: 0 0 1rem;
+        padding: 0;
+        font-size: 1.5rem;
+    }
+
+    &__listCmt {
+        margin: 0 0 2.5rem 0;
+        
+        .comment-meta {
+            .comment-author {
+                position: relative;
+                padding-left: 62px;
+                img {
+                    border: 2px solid #ebebeb;
+                    padding: 5px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            .comment-metadata {
+                padding-left: 62px;
+            }
+        }
+
+        .comment-content {
+            margin: 15px 0 5px;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .reply {
+            a {
+                text-decoration: none;
+                font-size: .9rem;
+                color: $black;
+            }
+        }
+    }
+}

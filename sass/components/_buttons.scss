@@ -78,7 +78,7 @@
         vertical-align: top;
     }
 
-    &--search {
+    &--search-mobile {
         background: rgba(0, 0, 0, 0) url("../images/header-search-icon.png") no-repeat scroll right 10px;
         bottom: auto;
         cursor: pointer;
@@ -87,6 +87,22 @@
         padding: 0;
         vertical-align: top;
         width: 30px;
+    }
+
+    &--search {
+        background-image: url("../images/search.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 17px;
+        border: 0;
+        color: #ffffff;
+        float: left;
+        font-size: 0;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        width: 40px;
+        border-radius: 0px;
     }
 
     span {

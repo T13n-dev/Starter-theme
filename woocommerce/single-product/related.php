@@ -8,7 +8,7 @@ if ( $related_products ) : ?>
 	<section class="t-single__related-products related products">
 
 		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Sản phẩm liên quan', THEME_DOMAIN ) );
 
 		if ( $heading ) :
 			?>

@@ -9,11 +9,20 @@ footer {
 
         .t-widget-footer {
             display: flex;
-            width: 100%;
             flex-direction: row;
 
             &__title {
                @extend %format-title;
+            }
+
+            &__image {
+                padding-bottom: .5rem;
+            }
+
+            &__caption {
+                color: $color-text7;
+                font-size: .9rem;
+                padding-bottom: 1.5rem !important;
             }
 
             &__contact-address,
@@ -47,36 +56,27 @@ footer {
 
             &__col-5 {
                 position: relative;
-                padding-right: 1rem;
+                padding-right: 1.5rem;
 
                 &:nth-child(1) {
-                    flex: 0 0 15%;
+                    flex: 0 0 30%;
                 }
                 &:nth-child(2) {
-                    flex: 0 0 15%;
+                    flex: 0 0 25%;
                 }
                 &:nth-child(3) {
                     flex: 0 0 15%;
                 }
                 &:nth-child(4) {
-                    flex: 0 0 30%;
-                    padding: 0 2rem;
-
-                    &:before {
-                        position: absolute;
-                        border-left: 1px solid #4b5561;
-                        content: "";
-                        width: 1px;
-                        height: 100%;
-                        left: 0px;
-                    }
+                    flex: 0 0 15%;
+                    
                 }
                 &:last-child {
-                    flex: 0 0 25%;
+                    flex: 0 0 15%;
                     padding-right: 0;
                 }
 
-                p {
+                a {
                     @extend %format-contact;
                     transition: color .1s ease;
                     cursor: pointer;
@@ -91,7 +91,7 @@ footer {
                 line-height: 1.5rem;
                 i {
                     padding-right: .5rem;
-                    font-size: 1.5rem;
+                    font-size: .9rem;
                 }
 
                 &-address,
@@ -104,8 +104,52 @@ footer {
                         color: $orange;
                     }
                 }
-               
-               
+            }
+
+            &__recent-post {
+                li {
+                    display: grid;   
+                    grid-template-columns: 3fr 7fr;
+                    grid-column-gap: .2rem;
+                    color: $color-text7;
+                    font-size: .9rem;
+                    margin-bottom: 1rem;
+                    padding-bottom: 1rem;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid #4b5561;
+                    }
+                }
+
+                a {
+                    color: $color-text7;
+                    padding: 0 !important;
+                }
+
+                &-thumbnail {
+                   img {
+                       border-radius: .5rem;
+                   }
+                }
+
+                &-info {
+                    color: $color-text7;
+                }
+
+                &-title {
+                    font-weight: 600;
+                    margin-bottom: .3rem;
+                }
+
+                &-meta {
+                    display: flex;
+                    color: $color-text8;
+                    font-size: .9rem;
+
+                    a {
+                        font-size: .9rem;
+                        color: $color-text3;
+                    }
+                }
             }
         }
     }
@@ -128,12 +172,12 @@ footer {
         &__copyright {
             color: $color-text7;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: .9rem;
         }
 
         &__payment {
             img {
-                width:  10rem;
+                width:  14rem;
             }
         }
     }

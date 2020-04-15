@@ -11,6 +11,9 @@
                 <?php
                     the_post_thumbnail( 'medium' );
                 ?>
+                <div class="t-blog-carousel__left-mark">
+                    <span></span>
+                </div>
             </div>
             <div class="t-blog-carousel__right">
                 <div class="t-blog-carousel__content">

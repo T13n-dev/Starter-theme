@@ -1,0 +1,31 @@
+.breadcrumbs {
+    display: flex;
+    font-family: $montserrat;
+    list-style: none;
+    font-size: .92em;
+    margin: 0;
+    padding:0;
+  
+    a {
+        text-decoration: none;
+        color: $black;
+    }
+
+    span {
+        color: $black;
+    }
+
+    &__link-home {
+        font-family: $montserrat;
+        position: relative;
+        color: $black !important;
+        padding: 0 0.1rem;
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-decoration: none;
+    }
+
+    &__item-cat {
+        color: $black;
+    }
+}

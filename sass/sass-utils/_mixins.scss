@@ -157,3 +157,21 @@ $num2: 0.5;
 .font-italic {
   font-style: italic !important;
 }
+
+/* SCROLL BAR */
+@mixin scroll-bar-thin ( $color-bar, $color-bg) {
+  scrollbar-color: $color-bar $color-bg;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: .4rem;
+  }
+   
+  &::-webkit-scrollbar-track {
+    background: $color-bg;
+  }
+   
+  &::-webkit-scrollbar-thumb {
+    background: $color-bar; 
+  }
+}

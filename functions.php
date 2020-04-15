@@ -9,6 +9,7 @@ defined( 'ABSPATH' ) || exit;
 $includes = array (
     'constants.php',                // Theme Constant 
     'setup.php',                    // Theme Setup
+    'extra_func.php',               // Funcs Support Function
     'menu.php',                     // Custom Menu Walker
     'category.php',                 // Custom Category Walker
     'sidebar.php',                  // Custom Vertical Menu Walker
@@ -18,7 +19,6 @@ $includes = array (
     'customizer.php',               // Add more Customizer
     'cpt.php',                      // Custom Post Type
     'widgets.php',                  // Register Widgets
-    'classes.php',                  // Support Classes
     'admin/function-admin.php',     // Setup Admin functions
     'init-template.php'             // Theme Template ( include template func and hooks )
 );

@@ -10,17 +10,117 @@
   }
   
   &__left {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 3%;
+
+    img {
+      transform: scale( 1 );
+      width: 100%;
+      max-height: 12rem;
+      min-height: 12rem;
+      transition: transform .7s ease;
+      object-fit: cover;
+    }
+
+    &:before{
+      content: "";
+      background-color: rgba( 0, 0 ,0 , 0.5);
+      width: 100%;
+      transition: opacity .7s ease;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    &:hover {
       img {
-        width: 100%;
-        height: auto;
+        transform: scale( 1.03 );
       }
+      &:before {
+        opacity: 1;
+      }
+    }
+
+    &-mark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -5px;
+      margin-left: -22px;
+      text-align: center;
+      font-size: 0;
+      z-index: 2;
+  
+      span,
+      &:before,
+      &:after {
+        display: inline-block;
+        margin-right: 7px;
+        width: .7rem;
+        height: .7rem;
+        border-radius: 50%;
+        background-color: $white;
+        vertical-align: middle;
+        opacity: 0;
+        transition: opacity .2s ease;
+        transition-delay: 0s;
+        animation-delay: 0s;
+        animation: t-fadeOutRight .3s ease;
+      }
+  
+      &:before {
+        transition-delay: .15s;
+        animation-delay: .15s;
+      }
+  
+      span {
+        transition-delay: .1s;
+        animation-delay: .1s;
+      }
+  
+      &:after {
+        margin-right: 0;
+      }
+  
+      &:after, 
+      &:before {
+        content: "";
+      }
+    }
+
+    &:hover &{
+      &-mark {
+        &:before {
+          transition-delay: .2s;
+          animation-delay: .2s !important;
+          opacity: 1;
+          animation: t-fadeInLeft .3s ease;
+        }
+
+        span {
+          transition-delay: .1s;
+          animation-delay: .1s !important;
+          opacity: 1;
+          animation: t-fadeInLeft .3s ease;
+        }
+        
+        &:after {
+          opacity: 1;
+          animation: t-fadeInLeft .3s ease;
+        }
+      }
+    }
   }
 
   &__title {
     a {
       color: $blue;
       font-size: 1.3rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: capitalize;
       text-decoration: none;
     }
@@ -34,8 +134,8 @@
   &__excerpt {
     line-height: 1.5rem;
     font-size: 1rem;
-    color:$color-text6;
-    margin: 1.4rem 0;
+    color: $color-text6;
+    margin-top: 1.4rem;
   }
 
   &__nav {

@@ -23,6 +23,16 @@ $footer_options = apply_filters('t_footer_options_args', array(
         //     'data'          => 'elusive-icons'
         // ),
         array(
+            'id'            => 't_media_logo_footer',
+            'type'          => 'media',
+            'url'           => true,
+            'title'         => esc_html__('Hình ảnh thương hiệu cho chân trang', THEME_DOMAIN),
+            'compiler'      => 'true',
+            //'mode' => false, // Can be set to false to allow any media type, or can also be set to any mime type.
+            'desc'          => esc_html__('Thiết lập hình ảnh thương hiệu cho chân trang', THEME_DOMAIN),
+            'default'       => array('url' => get_template_directory_uri() . '/images/logo.png'),
+        ),
+        array(
             'id'            => 't_text_address_footer_v1',
             'type'          => 'text',
             'title'         => esc_html__('Địa chỉ', THEME_DOMAIN),

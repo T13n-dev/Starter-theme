@@ -2,7 +2,7 @@
     "browserSyncOptions": {
         "proxy": "http://localhost/wp_nht/",
         "notify": false,
-        "browser": ["firefox"]
+        "browser": ["firefox", "chrome"]
 	},
 	"browserSyncWatchFiles": ["./css/*.css", "./js/scripts.js", "./*/**.php"],
     "paths" : {

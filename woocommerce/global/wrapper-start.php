@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * https://docs.woocommerce.com/document/conditional-tags/
  * 
  * @package tstarter/
- * */ 
+ **/ 
 
 if ( is_woocommerce() ) {
 	$page = '';
@@ -18,7 +18,7 @@ if ( is_woocommerce() ) {
 		$page .= 't-single ';	
 	}
 
-	if ( is_product_category() ) {
+	if ( is_product_category() || is_product_tag() || isset( $_GET['s'] ) ) {
 		$page .= 't-archive ';
 	}
 }

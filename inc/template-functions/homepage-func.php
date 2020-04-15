@@ -96,12 +96,12 @@ if (!function_exists('t_product_carousel')) {
                 </h2>
                 <ul>
                     <?php
-                    if (isset($arrCate) && is_array($arrCate)) {
+                    if ( isset($arrCate) && is_array($arrCate) ) {
                         foreach ($arrCate as $cate) {
                             $term = get_term_by('slug', $cate, 'product_cat'); ?>
                             <li>
                                 <a href="<?php echo esc_html(get_category_link($term->term_id)); ?>">
-                                    <?php echo esc_html($term->name); ?>
+                                    <?php echo ($term) ? esc_html($term->name) : ''; ?>
                                 </a>
                             </li>
                     <?php
@@ -182,7 +182,7 @@ if (!function_exists('t_banner_products')) {
                 wp_reset_query();
                 ?>
             </ul>
-            <div class="t-banner-products t-product-carousel__nav">
+            <div class="t-product-carousel__nav">
             </div>
         </div>
     </section>
@@ -213,38 +213,38 @@ if (!function_exists('t_banner_products_secondary')) {
         }
 
     ?>
-        <section class="t-banner-products t-product-carousel container">
-            <div class="t-banner-products__image">
-                <img src="<?php echo esc_url($banner['image']); ?>" alt="">
-                <div class="t-banner-products__image-content">
-                    <div class="t-banner-products__title--white">
-                        <?php echo esc_html($banner['caption']); ?>
-                    </div>
-                    <div class="t-banner-products__description--white">
-                        <?php echo esc_html($banner['content']); ?>
-                    </div>
-                    <a href="<?php echo esc_url($banner['action_link']); ?>" class="t-banner-products__link--white">
-                        <?php echo esc_html($banner['action_text']); ?>
-                    </a>
+    <section class="t-banner-products-secondary t-product-carousel container">    
+        <div class="t-banner-products-secondary__image">
+            <img src="<?php echo esc_url($banner['image']); ?>" alt="">
+            <div class="t-banner-products-secondary__image-content">
+                <div class="t-banner-products-secondary__title">
+                    <?php echo esc_html($banner['caption']); ?>
                 </div>
+                <div class="t-banner-products-secondary__description">
+                    <?php echo esc_html($banner['content']); ?>
+                </div>
+                <a href="<?php echo esc_url($banner['action_link']); ?>" class="t-banner-products-secondary__link">
+                    <?php echo esc_html($banner['action_text']); ?>
+                </a>
             </div>
-            <div class="t-banner-products__body t-product-carousel__body">
-                <ul class="t-banner-products__items owl-carousel owl-theme">
-                    <?php
-                    if ($products->have_posts()) :
-                        while ($products->have_posts()) : $products->the_post();
+        </div>
+        <div class="t-banner-products-secondary__body t-product-carousel__body">
+            <ul class="t-banner-products-secondary__items owl-carousel owl-theme">
+                <?php
+                if ($products->have_posts()) :
+                    while ($products->have_posts()) : $products->the_post();
 
-                            wc_get_template_part('content', 'product');
+                        wc_get_template_part('content', 'product');
 
-                        endwhile;
-                    endif;
+                    endwhile;
+                endif;
 
-                    wp_reset_query();
-                    ?>
-                </ul>
-                <div class="t-banner-products t-product-carousel__nav"></div>
-            </div>
-        </section>
+                wp_reset_query();
+                ?>
+            </ul>
+            <div class="t-product-carousel__nav"></div>
+        </div>
+    </section>
     <?php
     }
 }

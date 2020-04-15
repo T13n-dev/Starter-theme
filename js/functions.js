@@ -9,25 +9,28 @@ jQuery(function ($) {
         $windowWidth = $(window).width();
         $windowHeight = $(window).height();
     var windowWidth = window.innerWidth;
+    var $termSearch = false;
 
     class Tstarter {
-
         constructor() {
             this.backToTop();
             this.cateMenuToggle();
             this.megaMenuPosition();
+            this.miniCartToggle();
+            this.fixedHeader();
+            this.megaSearch(); // ! main search theme
             // Carousel
             this.slider();
             this.productsCarousel();
             this.itemsBannerCarousel();
+            this.itemsBannerCarouselSecondary();
             this.blogsCarousel();
             this.brandCarousel();
             this.thumbsCarousel();
             this.relatedCarousel();
-
-            this.miniCartToggle();
-            this.fixedHeader();
+            // Product
             this.minus_plus_product_qty();
+
             /**
              * Page Loader
              */
@@ -37,6 +40,10 @@ jQuery(function ($) {
                     $('html, body').css("overflow", 'visible');
                 }, 1000);
             });
+        }
+
+        getTermsearch() {
+            return this.$termSearch;
         }
 
         backToTop() {
@@ -56,7 +63,6 @@ jQuery(function ($) {
                 }, 600);
             });
         }
-
 
         cateMenuToggle() {
             var $cateList = $('.t-header__category-list');
@@ -83,7 +89,95 @@ jQuery(function ($) {
             }
         }
 
-        // ! truyền tham số vào để config trong redux framework
+        /**
+         * Search Ajax 
+         * 
+         * @version 1.0.0
+         */
+        megaSearch() {
+            if ( $('.t-search__category').length == 0 ) return;
+
+            // Handler click on cate list
+            $('.t-search__select-box').on('click', function(e) {
+                e.preventDefault();
+
+                $('.t-search__dropdown').toggleClass('t-search__dropdown-display');
+            });
+            $('.t-search__dropdown li').on('click', function() {
+                var data_slug = $( this ).find('a').data('slug');
+                var data_name = $( this ).find('a').html();
+
+                $('.t-search__label').html( data_name );
+                $('#t_product_cat').val( data_slug );
+
+                $('.t-search__dropdown').removeClass('t-search__dropdown-display');
+
+                // Handle Cate to do search againt when search field has word
+                if ( Helper.lengthSearch( $('.t-search__field').val() ) ) {
+                    $termSearch = true;
+                    Tstarter.doSearch();
+                }
+            });
+      
+            // Checking if mouse click out cate list or seacrh results
+            $body.mouseup( function(e) {
+                e.preventDefault();
+                
+                if( !$('.t-search__category').is(e.target) && $('.t-search__category').has(e.target).length === 0 ) {
+                    if( $('.t-search__dropdown').hasClass('t-search__dropdown-display') ) {
+                        $('.t-search__dropdown').removeClass('t-search__dropdown-display');
+                    }
+                }
+
+                if( !$('.t-search__results').is(e.target) && $('.t-search__results').has(e.target).length === 0 ) {
+                    if( $('.t-search__results-list').length !==  0 ) {
+                        $('.t-search__results').empty();
+                    }
+                }
+            });
+
+
+            // Appending div for search group 
+            $('.t-search__group').append('<div class="t-search__results"></div>');
+
+            $('.t-search__field').on( 'keyup', Helper.debounce(() => {
+                if (  Helper.lengthSearch( $('.t-search__field').val() ) ) {
+                    $termSearch = true;
+                    Tstarter.doSearch();
+                } else {
+                    $('.t-search__results').empty();    
+                    $termSearch = false;
+                }
+            }, 500));       
+        }
+
+        static doSearch() {
+            let query = $('.t-search__field').val();
+            let slug = $('#t_product_cat').val();
+
+            $.ajax({
+                type: 'POST',
+                url: ajax_object.ajax_url,
+                data: {
+                    action: 'ajax_search',
+                    query: query,
+                    slug: slug
+                },
+                success: function( result ) {
+                    if( $termSearch ) {
+                        $('.t-search__results').html( result );
+                    }
+                },
+                beforeSend: function() {
+                    $('.t-search__button > button').addClass('loading');  
+                },
+                complete: function() {
+                    $('.t-search__button > button').removeClass('loading');
+                }
+            });
+        }
+        
+        // ! Truyền tham số vào để config trong redux framework
         slider() {
             var $slider = $(".t-slider");
 
@@ -141,7 +235,7 @@ jQuery(function ($) {
         };
 
         itemsBannerCarousel() {
-            var $itemsBannerCarousel = $(".t-banner-products__items");
+            let $itemsBannerCarousel = $(".t-banner-products__items");
 
             if ($itemsBannerCarousel === 0) {
                 return;
@@ -157,6 +251,44 @@ jQuery(function ($) {
                     '<i class="fa fa-angle-right" aria-hidden="true"></i>'
                 ],
                 navContainer: '.t-banner-products .t-product-carousel__nav',
+                navElement: 'div',
+                autoplay: false,
+                responsiveClass: true,
+                margin: 5,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    768: {
+                        items: 2
+                    },
+                    992: {
+                        items: 2
+                    },
+                    1200: {
+                        items: 4
+                    }
+                }
+            });
+        }
+
+        itemsBannerCarouselSecondary() {
+            let $itemsBannerCarousel = $(".t-banner-products-secondary__items");
+
+            if ($itemsBannerCarousel === 0) {
+                return;
+            }
+
+            $itemsBannerCarousel.owlCarousel({
+                loop: true,
+                items: 4,
+                dots: false,
+                nav: true,
+                navText: [
+                    '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                    '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+                ],
+                navContainer: '.t-banner-products-secondary .t-product-carousel__nav',
                 navElement: 'div',
                 autoplay: false,
                 responsiveClass: true,
@@ -356,6 +488,9 @@ jQuery(function ($) {
             }
         }
 
+        /**
+         * Minus and bonus product quantity
+         */
         minus_plus_product_qty() {
             $('.t-single__quantity').on('click', '.t-single__quantity--minus', function (e) {
                 var qty  = $(this).parent().find('input.t-single__quantity--total');
@@ -374,8 +509,28 @@ jQuery(function ($) {
                 qty.val(val + step).change();
             });
         }
-    
+    }
+
+    class Helper {
+        // Limiting the rate at function can fire
+        // https://davidwalsh.name/javascript-debounce-function
+     
+        static debounce(callback, wait) {
+            let timeout;
+            return (...args) => {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => callback.apply(context, args), wait);
+            };
+        }
+
+        static lengthSearch( val ) {
+            let minLength = 2;
+            if ( val.length > minLength ) return true;
+            return false;
+        }
     }
 
     new Tstarter();
 });
+

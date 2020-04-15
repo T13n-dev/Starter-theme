@@ -28,6 +28,13 @@ if (empty($product) || !$product->is_visible()) {
 		do_action('woocommerce_before_shop_loop_item_title');
 		?>
 		<div class="t-product-carousel__product-detail">
+			<?php 
+			/**
+			 * Function: get rating
+			 */
+			woocommerce_template_loop_rating();
+			?>
+
 			<?php
 			/**
 			 * Hook: woocommerce_shop_loop_item_title.

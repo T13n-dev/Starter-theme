@@ -12,7 +12,7 @@ if (!function_exists('t_preload')) {
         $t_footer = apply_filters('t_preload', true);
 
         if ($t_footer) {
-?>
+        ?>
             <div class="t-loader">
                 <svg id="t-loader__svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 355.44 386.95">
                     <g id="Browser">
@@ -49,7 +49,7 @@ if (!function_exists('t_header_shipping')) {
                 </div>
             </div>
         </div>
-<?php
+        <?php
     }
 }
 
@@ -73,7 +73,7 @@ if (!function_exists('t_header_contact')) {
     }
 }
 
-if ( !function_exists('t_header_top') ) {
+if ( !function_exists('t_header_top')) {
     function t_header_top() {
         ?>
         <div class="t-header__top">
@@ -110,8 +110,15 @@ if ( !function_exists('t_header_top') ) {
 
                     <?php do_action('t_header_info'); ?>
 
-                    <div class="advertisement-zone">
-                        <a href="#">Advertisement zone</a>
+                    <div class="t-advertisement">
+                        <a href="<?php echo apply_filters('t_github_link', '#'); ?>"> 
+                            <p>
+                                <i class="fab fa-github"></i>
+                            </p>
+                            <p>
+                                <b><?php echo apply_filters('t_github', esc_html('Github', THEME_DOMAIN)); ?></b>
+                            </p>
+                        </a>
                     </div>
                 </div>
                 <div class="t-header__mobile-menu">
@@ -134,15 +141,15 @@ if ( !function_exists('t_header_top') ) {
     }
 }
 
-if ( !function_exists('t_header_bottom') ) {
+if ( !function_exists('t_header_bottom')) {
     function t_header_bottom() {
         ?>
             <div class="t-header__bottom">
                 <div class="t-header__bottom-inner container">
                     <div class="t-header__section t-header__section--left">
                         <div class="t-header__category-list">
-                            <span>Shop By</span>
-                            <h2>Categories </h2>
+                            <span>Mua sắm theo</span>
+                            <h2>Danh mục</h2>
                         </div>
                         <?php 
                             wp_nav_menu(
@@ -159,26 +166,31 @@ if ( !function_exists('t_header_bottom') ) {
                     </div>
                     <div class="t-header__section t-header__section--middle">
                         <div class="t-header__search-area">
-                            <form action="" class="t-search woocommerce-product-search">
+                            <form class="t-search woocommerce-product-search" role="search" method="get" action="<?php echo esc_url( home_url( '/'  ) ); ?>">
                                 <div class="t-search__group">
-                                    <input type="search" class="t-search__field" name="s" value="" placeholder="Tìm kiếm sản phẩm" autocomplete="off">
+                                    <input type="search" class="t-search__field search-field" id="woocommerce-product-search-field-0"  name="s" value="" placeholder="Tìm kiếm sản phẩm" autocomplete="off">
+                                    <input type="hidden" name="product_cat" id="t_product_cat" value="" />
+                                    <input type="hidden" name="post_type" value="product">
+                                   
                                     <div class="t-search__button">
-                                        <button stype="submit" class="button-icon--search">
-                                        </button>
+                                        <button type="submit"  class="button-icon--search" value="Search"></button>
                                     </div>
                                     <div class="t-search__category">
                                         <a href="" class="t-search__select-box">
-                                            <span class="t-search__label"> All Categories </span>
+                                            <span class="t-search__label"><?php echo esc_html('Tất cả danh mục', THEME_DOMAIN ); ?></span>
                                             <span class="t-search__arrow"></span>
-                                            <?php 
-                                                // echo wp_list_categories();
-                                            ?>
                                         </a>
+                                        <?php
+                                            /**
+                                             * Get block categories
+                                             */
+                                            do_action('t_get_categories');
+                                        ?>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="button-icon--search">
+                        <div class="button-icon--search-mobile">
                         </div>
                     </div>
                     <div class="t-header__section t-header__section--right">

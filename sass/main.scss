@@ -20,24 +20,27 @@
 @import "base/reset";
 @import "base/typography";
 @import "base/scaffort";
+@import "base/keyframes";
 
-// Layout 
+// Layouts
 @import "layouts/sidebar";
 @import "layouts/header";
 @import "layouts/navigation";
 @import "layouts/mobile_sidebar";
 @import "layouts/footer";
 @import "layouts/pagination";
+@import "layouts/comments";
+@import "layouts/carousel";
 
 // Components 
 @import "components/buttons";
 @import "components/advertisement";
 @import "components/search";
 @import "components/forms";
-@import "components/carousel";
 @import "components/widget";
 @import "components/loadingpage";
 @import "components/backtotop";
+@import "components/breadcrumbs";
 
 // Woo 
 @import "woo/woo";
@@ -47,3 +50,5 @@
 @import "pages/blog";
 @import "pages/single";
 @import "pages/archive";
+@import "pages/blog_archive";
+@import "pages/blog_single";

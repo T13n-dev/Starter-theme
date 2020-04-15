@@ -11,11 +11,32 @@
     padding: 0.1rem;
     display: flex;
     align-items: center;
+    position: relative;
+  }
+
+  &__button {
+    button.loading{
+      background-image: none;
+      &:after {
+        content: "";
+        animation: spin 500ms infinite linear;
+        border: .2rem solid $black;
+        border-top-color: rgb(255, 255, 255);
+        border-right-color: rgb(255, 255, 255);
+        border-radius: 32px;
+        border-right-color: transparent !important;
+        border-top-color: transparent !important;
+        display: block;
+        height: 1.2rem;
+        width: 1.2rem;
+        margin: 0 auto;
+      }
+    }
   }
 
   &__field {
     border: 0;
-    color: #aaa;
+    color: $color-text10;
     float: left;
     height: 2.5rem;
     padding: 1.2rem 3rem 1rem 1rem;
@@ -28,7 +49,7 @@
 
   &__category {
     position: relative;
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: .5rem .5rem .5rem 1rem;
     &:before {
       background: #e6e6e6;
       content: "";
@@ -54,9 +75,118 @@
     @include fontawesome-solid-after($fa-var-caret-down) {
       position: absolute;
       top: 0.7rem;
-      right: 1rem;
+      padding-left: .5rem;
       left: auto;
       color: #737373;
+    }
+  }
+
+  &__dropdown {
+    z-index: 102;
+    max-height: 21rem;
+    min-height: 20rem;
+    width: 100%;
+    top: 90%;
+    right: 0;
+    display: none;
+    border-radius: .1rem;
+    font-size: 1rem;
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+    position: absolute;
+    border: $border;
+    background: $white;
+    box-shadow: $box-shadow;
+    overflow: auto;
+    @include scroll-bar-thin ( $blue, $white );
+    li {
+      a {
+        font-size: .8rem;
+        padding: 0.2em;
+        color: #656565;
+        border-radius: 3px;
+        line-height: 1.5;
+        white-space: nowrap;
+        overflow: hidden;
+        background: 6px center no-repeat;
+        list-style: none;
+        display: block;
+        cursor: pointer;
+        margin: 0;
+  
+        &:hover {
+            background-color: $light-gray;
+        }
+      }
+    }
+
+    &-display {
+      display: block;
+    }
+  }
+
+  &__results {
+    left: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255,255,255,0.97);
+    border-top: none;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+    text-shadow: none;
+    max-height: 400px;
+    overflow-x: hidden;
+
+    &-list {
+      margin: 8px 0;
+    }
+
+    &-item {
+      border-bottom: 1px;
+      border-style: solid;
+      border-color: #e9e9e9;
+      padding: .2rem 1rem;
+      font-size: 1rem;
+      line-height: 1.2rem;
+      display: flex;
+      cursor: pointer;
+      justify-content: space-between;
+
+      &:hover {
+        background-color: $orange;
+      }
+    }
+
+    &-image {
+      flex: 0 0 10%;
+      img {
+        width: 45px;
+        border-radius: 50%;
+      }
+    }
+
+    &-title {
+      flex: 0 0 65%;
+      margin-left: 1rem;
+      text-transform: capitalize;
+      font-size: .9rem;
+      margin-right: auto;
+      a {
+        color: #212121;
+        text-decoration: none;
+      }
+    }
+
+    &-price {
+      flex: 0 0 25%;
+      color: $blue;
+      margin-left: auto;
+      span {
+        font-size: .8rem;
+        font-weight: 600;
+      }
     }
   }
 

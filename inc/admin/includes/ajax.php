@@ -3,6 +3,8 @@
 /**
  * Ajax Handler
  * action: get_slide_cpt, add_slide_cpt, update_slide_cpt, delete_slide_cpt
+ * 
+ * @package tstarter/inc/admin/includes
  */
 
 add_action('wp_ajax_nopriv_get_slide_cpt', 'get_slide_cpt');

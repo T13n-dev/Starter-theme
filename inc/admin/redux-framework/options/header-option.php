@@ -50,6 +50,20 @@ $header_options = apply_filters('huutien_header_option_args', array(
             'title' => esc_html__('Thêm thông tin liên hệ 2', THEME_DOMAIN),
             'desc' => esc_html__('Ví dụ: 070 7768 350', THEME_DOMAIN),
             'default' => ''
+        ),
+        array(
+            'id' => 't_header_info_github',
+            'type' => 'text',
+            'title' => esc_html__('Thêm thông tin github', THEME_DOMAIN),
+            'desc' => esc_html__('Ví dụ: My Github', THEME_DOMAIN),
+            'default' => ''
+        ),
+        array(
+            'id' => 't_header_info_github_link',
+            'type' => 'text',
+            'title' => esc_html__('Thêm đường dẫn github', THEME_DOMAIN),
+            'desc' => esc_html__('Ví dụ: https://github.com/T13n-dev?tab=repositories', THEME_DOMAIN),
+            'default' => ''
         )
     )
 ));

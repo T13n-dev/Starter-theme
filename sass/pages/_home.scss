@@ -41,6 +41,7 @@
       background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
       transition: all 0.5s ease-in;
       z-index: 1;
+      pointer-events: none;
     }
 
     &:before {
@@ -54,6 +55,7 @@
       background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
       transition: all 0.5s ease-in;
       z-index: 1;
+      pointer-events: none;
     }
   }
 
@@ -132,6 +134,7 @@
         background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
         transition: all 0.5s ease-in;
         z-index: 1;
+        pointer-events: none;
       }
 
       &:before {
@@ -145,6 +148,7 @@
         background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
         transition: all 0.5s ease-in;
         z-index: 1;
+        pointer-events: none;
       }
     }
 
@@ -250,7 +254,7 @@
   display: grid;
   grid-template-columns: auto 65rem;
   grid-column-gap: 1rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 
   &__image {
     font-family: $montserrat;
@@ -263,10 +267,6 @@
       object-fit: cover;
       border-radius: 0.5rem;
     }
-  }
-
-  &__body {
-    position: relative;
   }
 
   &__image-content {
@@ -367,10 +367,86 @@
       border-radius: 0.3rem;
     }
   }
+
+  &-secondary {
+    display: grid;
+    grid-template-columns: auto 65rem;
+    grid-column-gap: 1rem;
+    padding-bottom: 5rem;
+
+    &__image {
+      font-family: $montserrat;
+      max-width: 100%;
+      height: auto;
+      position: relative;
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0.5rem;
+      }
+    }
+
+    &__image-content {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      bottom: auto;
+      right: auto;
+      text-align: left;
+      width: auto;
+      padding: 2rem;
+    }
+
+    &__title {
+      color: $white;
+      font-family: inherit;
+      font-weight: 600;
+      position: relative;
+      font-size: 2.1rem;
+      text-align: left;
+      line-height: 3.8rem;
+      letter-spacing: 0.1rem;
+
+      &:before {
+        position: absolute;
+        content: "";
+        left: 0rem;
+        width: 4rem;
+        height: 0.2rem;
+        bottom: 0;
+        right: auto;
+        top: auto;
+        background: $orange;
+      }
+    }
+
+    &__description {
+      color: $white;
+      font-weight: 500;
+      font-family: inherit;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+
+    &__link {
+      font-family: inherit;
+      text-decoration: none;
+      background-color: $orange;
+      color: $white;
+      padding: 0.8rem 1.3rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 8rem;
+      border-radius: 0.3rem; 
+    }
+  }
 }
 
 .t-blog-items {
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
   &__head {
     display: flex;
     border-bottom: $border2;
@@ -387,12 +463,13 @@
   }
 
   &__blogs {
+    margin: 0;
     list-style: none;
   }
 }
 
 .t-brand-carousel {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   ul {
     li {
       margin: 5px 15px;
@@ -401,9 +478,9 @@
         width: 100%;
         height: auto;
         opacity: 0.7;
-        transition: opacity .5s ease; 
-        &:hover  {
-            opacity: 1;
+        transition: opacity 0.5s ease;
+        &:hover {
+          opacity: 1;
         }
       }
     }
@@ -411,6 +488,7 @@
 
   &__brands {
     list-style: none;
+    margin: 0;
   }
 }
 
@@ -424,12 +502,12 @@
 @include breakpoint-down(lg) {
   .t-intro {
     &__text {
-      font-size: .9rem;
+      font-size: 0.9rem;
       line-height: 1.2rem;
     }
 
     &__action {
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
   }
 
@@ -443,13 +521,16 @@
     }
 
     &__action {
-      line-height: .5rem;
+      line-height: 0.5rem;
     }
   }
 
-  .t-banner-products {
+  .t-banner-products,
+  .t-banner-products-secondary {
     grid-template-columns: auto 33rem;
   }
+
+
 }
 
 @include breakpoint-down(md) {
@@ -475,16 +556,16 @@
     &__action {
       line-height: 2rem;
     }
-  } 
+  }
 
-  .t-banner-products {
+  .t-banner-products,
+  .t-banner-products-secondary {
     display: block;
 
     &__image {
       display: none;
     }
-  } 
-
+  }
 }
 
 @include breakpoint-down(sm) {
@@ -494,14 +575,14 @@
     grid-template-rows: repeat(3, 1fr);
     grid-row-gap: 2rem;
     &__text {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 1rem;
+      line-height: 1.2rem;
     }
     &__action {
-      font-size: 1.5rem;
+      font-size: 1rem;
 
       &:after {
-        font-size: 1.2rem;
+        font-size: 0.7rem;
       }
     }
   }
@@ -533,7 +614,7 @@
     &__action {
       line-height: 2rem;
     }
-  }  
+  }
 }
 
 @include breakpoint-down(xs) {
@@ -545,5 +626,13 @@
     &__action {
       display: none;
     }
-  }  
+  }
+  
+  .t-blog-items {
+    &__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 20px;
+    }
+  }
 }
